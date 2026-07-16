@@ -47,7 +47,7 @@
         }
 
         /* Shining Button Effect */
-        .btn-primary, .btn-secondary, .reserve-btn, .menu-tab, .event-card button {
+        .btn-primary, .btn-secondary, .reserve-btn, .menu-tab {
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -255,23 +255,6 @@
             font-weight: 300;
         }
 
-        .hero-title {
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            font-weight: 400;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.8s;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            color: var(--text-primary);
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--copper);
-        }
-
         .hero-buttons {
             display: flex;
             gap: 2rem;
@@ -371,16 +354,16 @@
             line-height: 1.8;
         }
 
-        /* Featured Section */
+        /* Featured Section - Small Cards */
         .featured {
             background: var(--darker-chocolate);
         }
 
         .featured-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -388,53 +371,41 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            group: true;
             border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .featured-card:hover {
+            border-color: var(--copper);
+            transform: translateY(-5px);
         }
 
         .featured-card img {
             width: 100%;
-            height: 500px;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .featured-card:hover img {
-            transform: scale(1.15);
         }
 
         .featured-card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 3rem 2rem 2rem;
-            background: linear-gradient(to top, rgba(26,15,13,0.98) 0%, rgba(26,15,13,0.7) 50%, transparent 100%);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-
-        .featured-card:hover .featured-card-content {
-            transform: translateY(0);
-            opacity: 1;
+            padding: 1.5rem;
+            background: var(--light-chocolate);
         }
 
         .featured-card h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
         .featured-card p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
         .featured-card .price {
             color: var(--copper);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 600;
             font-family: 'Playfair Display', serif;
         }
@@ -494,7 +465,7 @@
             font-weight: 300;
         }
 
-        /* Menu Section */
+        /* Menu Section - Images Only */
         .menu {
             background: var(--darker-chocolate);
         }
@@ -503,7 +474,7 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
 
@@ -512,9 +483,9 @@
             border: 2px solid var(--border-color);
             color: var(--text-secondary);
             font-size: 0.95rem;
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 2rem;
             cursor: pointer;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.3s ease;
             font-weight: 500;
@@ -529,88 +500,54 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .menu-item {
-            display: flex;
-            gap: 2rem;
-            padding: 2.5rem;
-            background: var(--light-chocolate);
-            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
         .menu-item:hover {
             border-color: var(--copper);
-            transform: translateX(15px);
-            box-shadow: 0 10px 40px rgba(184, 115, 51, 0.15);
         }
 
-        .menu-item-image {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 3px solid var(--copper);
-        }
-
-        .menu-item-image img {
+        .menu-item img {
             width: 100%;
-            height: 100%;
+            height: 300px;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .menu-item-content {
-            flex: 1;
+        .menu-item:hover img {
+            transform: scale(1.05);
         }
 
-        .menu-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-            border-bottom: 2px dotted var(--border-color);
-            padding-bottom: 1rem;
+        .menu-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,15,13,0.95), transparent);
+            padding: 1.5rem;
         }
 
-        .menu-item h3 {
-            font-size: 1.6rem;
+        .menu-item-overlay h3 {
+            font-size: 1.3rem;
             color: var(--text-primary);
+            margin-bottom: 0.3rem;
         }
 
-        .menu-item .price {
+        .menu-item-overlay .price {
             color: var(--copper);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .menu-item p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .menu-item-tags {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            font-size: 0.8rem;
-            padding: 0.4rem 1rem;
-            background: rgba(184, 115, 51, 0.15);
-            color: var(--copper);
-            border: 1px solid rgba(184, 115, 51, 0.4);
-            letter-spacing: 1px;
         }
 
         /* About Section */
@@ -689,14 +626,14 @@
             margin-top: 0.5rem;
         }
 
-        /* Chefs Section - Zoom Effect */
+        /* Chefs Section - Real Images */
         .chefs {
             background: var(--darker-chocolate);
         }
 
         .chefs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -704,7 +641,6 @@
 
         .chef-card {
             text-align: center;
-            position: relative;
             background: var(--light-chocolate);
             border: 1px solid var(--border-color);
             padding: 2rem;
@@ -713,10 +649,9 @@
 
         .chef-image {
             width: 100%;
-            height: 450px;
+            height: 400px;
             overflow: hidden;
-            margin-bottom: 2rem;
-            position: relative;
+            margin-bottom: 1.5rem;
             border: 2px solid var(--copper);
         }
 
@@ -730,39 +665,39 @@
 
         .chef-card:hover .chef-image img {
             filter: grayscale(0%);
-            transform: scale(1.15);
+            transform: scale(1.05);
         }
 
         .chef-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
             color: var(--text-primary);
         }
 
         .chef-role {
             color: var(--copper);
-            font-size: 0.95rem;
-            letter-spacing: 3px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 500;
         }
 
         .chef-bio {
             color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* Gallery Section - High Quality */
+        /* Gallery Section */
         .gallery {
             background: var(--darker-chocolate);
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
             max-width: 1600px;
             margin: 0 auto;
         }
@@ -805,19 +740,19 @@
         }
 
         .gallery-overlay i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--darker-chocolate);
         }
 
-        /* Events Section - Modal */
+        /* Events Section */
         .events {
             background: var(--light-chocolate);
         }
 
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -826,19 +761,18 @@
             background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             overflow: hidden;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .event-card:hover {
             border-color: var(--copper);
-            transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(184, 115, 51, 0.2);
+            transform: translateY(-5px);
         }
 
         .event-image {
             width: 100%;
-            height: 300px;
+            height: 250px;
             overflow: hidden;
             position: relative;
         }
@@ -847,67 +781,66 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s ease;
+            transition: transform 0.6s ease;
         }
 
         .event-card:hover .event-image img {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
 
         .event-date {
             position: absolute;
-            top: 2rem;
-            left: 2rem;
+            top: 1rem;
+            left: 1rem;
             background: var(--copper);
             color: var(--darker-chocolate);
-            padding: 1.2rem;
+            padding: 0.8rem;
             text-align: center;
-            min-width: 80px;
+            min-width: 70px;
             font-weight: 600;
         }
 
         .event-date .day {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             display: block;
             line-height: 1;
         }
 
         .event-date .month {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 0.3rem;
         }
 
         .event-content {
-            padding: 2.5rem;
+            padding: 1.5rem;
         }
 
         .event-content h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
             color: var(--text-primary);
         }
 
         .event-content p {
             color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .event-meta {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .event-meta i {
             color: var(--copper);
-            margin-right: 0.8rem;
+            margin-right: 0.5rem;
         }
 
         /* Reviews Slider Section */
@@ -917,7 +850,7 @@
         }
 
         .reviews-slider-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
         }
@@ -929,17 +862,17 @@
 
         .review-card {
             min-width: 100%;
-            padding: 3rem;
+            padding: 2rem;
             background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             align-items: center;
         }
 
         .review-image {
-            width: 250px;
-            height: 350px;
+            width: 200px;
+            height: 280px;
             flex-shrink: 0;
             overflow: hidden;
             border: 3px solid var(--copper);
@@ -957,17 +890,17 @@
 
         .review-stars {
             color: var(--copper);
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            letter-spacing: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
         }
 
         .review-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            line-height: 1.7;
+            font-size: 1.5rem;
+            line-height: 1.6;
             font-style: italic;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--text-primary);
             font-weight: 400;
         }
@@ -975,12 +908,12 @@
         .reviewer-info {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .reviewer-avatar {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid var(--copper);
@@ -993,32 +926,32 @@
         }
 
         .reviewer-details h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
             color: var(--text-primary);
         }
 
         .reviewer-details p {
             color: var(--copper);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .slider-controls {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 3rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .slider-btn {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border: 2px solid var(--copper);
             background: transparent;
             color: var(--copper);
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .slider-btn:hover {
@@ -1029,13 +962,13 @@
         .slider-dots {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
         }
 
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: var(--border-color);
             cursor: pointer;
@@ -1044,8 +977,8 @@
 
         .dot.active {
             background: var(--copper);
-            width: 30px;
-            border-radius: 6px;
+            width: 25px;
+            border-radius: 5px;
         }
 
         /* Contact Section */
@@ -1056,60 +989,60 @@
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            max-width: 1400px;
+            gap: 4rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .contact-info h3 {
-            font-size: 2.5rem;
-            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             color: var(--text-primary);
         }
 
         .contact-details {
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .contact-item i {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--copper);
             margin-top: 0.3rem;
         }
 
         .contact-item-content h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
         .contact-item-content p {
             color: var(--text-secondary);
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .contact-form {
             background: var(--light-chocolate);
-            padding: 3.5rem;
+            padding: 2.5rem;
             border: 1px solid var(--border-color);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-secondary);
@@ -1118,69 +1051,69 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1rem;
             background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--copper);
-            box-shadow: 0 0 20px rgba(184, 115, 51, 0.2);
+            box-shadow: 0 0 15px rgba(184, 115, 51, 0.2);
         }
 
         .form-group textarea {
-            min-height: 180px;
+            min-height: 150px;
             resize: vertical;
         }
 
         /* Footer */
         footer {
             background: var(--darker-chocolate);
-            padding: 6rem 5% 2rem;
+            padding: 4rem 5% 2rem;
             border-top: 1px solid var(--border-color);
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto 5rem;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
         }
 
         .footer-brand .logo {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             display: inline-block;
         }
 
         .footer-brand p {
             color: var(--text-secondary);
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
         }
 
         .social-links a {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border: 2px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-primary);
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .social-links a:hover {
@@ -1191,9 +1124,9 @@
         }
 
         .footer-column h4 {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            letter-spacing: 3px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
             color: var(--text-primary);
         }
 
@@ -1202,30 +1135,30 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-column ul li a {
             color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
 
         .footer-column ul li a:hover {
             color: var(--copper);
-            padding-left: 10px;
+            padding-left: 8px;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 3rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
-        /* Large Product Modal */
+        /* Small Modal */
         .modal {
             display: none;
             position: fixed;
@@ -1233,12 +1166,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0,0,0,0.9);
             z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            overflow-y: auto;
         }
 
         .modal.active {
@@ -1248,23 +1180,24 @@
         .modal-content {
             background: var(--light-chocolate);
             border: 2px solid var(--copper);
+            max-width: 700px;
             width: 100%;
-            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
             position: relative;
-            animation: modalFadeIn 0.4s ease;
-            box-shadow: 0 0 60px rgba(184, 115, 51, 0.3);
+            animation: modalFadeIn 0.3s ease;
         }
 
         .modal-close {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+            top: 1rem;
+            right: 1rem;
             background: none;
             border: 2px solid var(--copper);
             color: var(--copper);
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s ease;
@@ -1277,60 +1210,40 @@
         }
 
         .modal-body {
-            padding: 4rem;
+            padding: 2.5rem;
         }
 
-        .product-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .product-detail-image {
-            position: relative;
-            overflow: hidden;
-            border: 3px solid var(--copper);
-        }
-
-        .product-detail-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .product-detail-info h2 {
-            font-size: 3rem;
+        .modal-body h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--text-primary);
-            font-family: 'Playfair Display', serif;
         }
 
-        .product-detail-info .price {
+        .modal-body .price {
             color: var(--copper);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             display: block;
             font-family: 'Playfair Display', serif;
-            font-weight: 600;
         }
 
-        .product-detail-info > p {
+        .modal-body > p {
             color: var(--text-secondary);
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
         .ingredients-list {
-            margin: 2.5rem 0;
-            padding: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
             background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
         }
 
         .ingredients-list h4 {
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
             color: var(--copper);
             letter-spacing: 2px;
         }
@@ -1340,90 +1253,90 @@
             color: var(--text-secondary);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .ingredients-list ul li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
             position: relative;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
 
         .ingredients-list ul li::before {
-            content: '';
+            content: '•';
             color: var(--copper);
             position: absolute;
             left: 0;
         }
 
         .review-section {
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 2px solid var(--border-color);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .review-section h4 {
-            margin-bottom: 2rem;
-            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
             color: var(--text-primary);
         }
 
         .review-item {
             background: var(--darker-chocolate);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--copper);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--copper);
         }
 
         .review-item-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .review-item-name {
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--text-primary);
         }
 
         .review-item-stars {
             color: var(--copper);
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
         }
 
         .review-item-text {
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .modal-cta {
-            margin-top: 3rem;
+            margin-top: 2rem;
             text-align: center;
         }
 
-        /* Event Detail Modal - Responsive */
+        /* Event Small Modal */
         .event-modal-content {
-            max-width: 800px;
+            max-width: 600px;
         }
 
         .event-modal-content h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
             color: var(--text-primary);
             text-align: center;
         }
 
         .event-modal-image {
             width: 100%;
-            height: 400px;
+            height: 300px;
             overflow: hidden;
-            border: 3px solid var(--copper);
-            margin-bottom: 2rem;
+            border: 2px solid var(--copper);
+            margin-bottom: 1.5rem;
         }
 
         .event-modal-image img {
@@ -1433,51 +1346,53 @@
         }
 
         .event-modal-details {
-            padding: 2rem;
+            padding: 1.5rem;
             background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .event-modal-details h3 {
             color: var(--copper);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .event-modal-details p {
             color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
         }
 
         .event-modal-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .event-info-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         .event-info-item i {
             color: var(--copper);
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         /* Reserve Modal */
         .reserve-modal-content {
-            max-width: 700px;
+            max-width: 600px;
         }
 
         .reserve-modal-content h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             color: var(--text-primary);
             text-align: center;
         }
@@ -1485,38 +1400,38 @@
         .reserve-modal-content > p {
             text-align: center;
             color: var(--text-secondary);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
         .contact-info-modal {
-            margin-top: 3rem;
-            padding: 3rem;
+            margin-top: 2rem;
+            padding: 2rem;
             background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
         }
 
         .contact-info-modal h3 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             color: var(--copper);
             text-align: center;
         }
 
         .contact-info-modal p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            font-size: 1.1rem;
+            gap: 1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
         }
 
         .contact-info-modal i {
             color: var(--copper);
-            font-size: 1.3rem;
-            width: 30px;
+            font-size: 1.1rem;
+            width: 25px;
         }
 
         /* Animations */
@@ -1578,10 +1493,6 @@
                 z-index: 1001;
             }
 
-            .hero-title {
-                font-size: 3rem;
-            }
-
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1590,7 +1501,7 @@
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 4rem;
+                gap: 3rem;
             }
 
             .about-images {
@@ -1599,19 +1510,6 @@
 
             .about-images img:first-child {
                 transform: translateY(0);
-            }
-
-            .product-detail-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .product-detail-image img {
-                height: 350px;
-            }
-
-            .product-detail-info h2 {
-                font-size: 2rem;
             }
 
             .ingredients-list ul {
@@ -1624,12 +1522,12 @@
             }
 
             .review-image {
-                width: 200px;
-                height: 280px;
+                width: 180px;
+                height: 250px;
             }
 
             .review-text {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
 
             .event-modal-info {
@@ -1638,7 +1536,7 @@
 
             .footer-content {
                 grid-template-columns: 1fr 1fr;
-                gap: 3rem;
+                gap: 2rem;
             }
 
             .menu-grid,
@@ -1656,21 +1554,17 @@
         }
 
         @media (max-width: 640px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
             .section-title {
                 font-size: 2.5rem;
             }
 
             .menu-tabs {
-                gap: 1rem;
+                gap: 0.8rem;
             }
 
             .menu-tab {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
             }
 
             .about-stats {
@@ -1682,15 +1576,15 @@
             }
 
             .modal-body {
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .contact-form {
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .event-modal-content h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -1716,7 +1610,7 @@
         </div>
     </nav>
 
-    <!-- Full Screen Video Hero -->
+    <!-- Full Screen Video Hero - No Text -->
     <section class="hero" id="home">
         <video class="hero-video-bg" autoplay muted loop playsinline>
             <source src="https://cdn.shopify.com/videos/c/o/v/c271c6c9e53c41419de2cf2b26141d77.mp4" type="video/mp4">
@@ -1724,7 +1618,6 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-subtitle">Welcome to Ember & Oak</p>
-            <h1 class="hero-title">Where <em>Fire</em> Meets <em>Fine</em> Dining</h1>
             <div class="hero-buttons">
                 <button class="btn-primary copper-glow" onclick="openReserveModal()">Book a Table</button>
                 <a href="#menu" class="btn-secondary">View Menu</a>
@@ -1735,35 +1628,35 @@
         </div>
     </section>
 
-    <!-- Featured Section -->
+    <!-- Featured Section - Small Cards -->
     <section class="featured">
         <div class="section-header">
             <p class="section-subtitle">Our Signature</p>
             <h2 class="section-title">Chef's Specials</h2>
-            <p class="section-text">Discover our most celebrated dishes, crafted with the finest ingredients and culinary expertise</p>
+            <p class="section-text">Discover our most celebrated dishes, crafted with the finest ingredients</p>
         </div>
         <div class="featured-grid">
             <div class="featured-card" onclick="openProductModal('truffle-risotto')">
-                <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80" alt="Truffle Risotto">
+                <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80" alt="Truffle Risotto">
                 <div class="featured-card-content">
                     <h3>Truffle Risotto</h3>
-                    <p>Creamy arborio rice with black truffle shavings</p>
+                    <p>Creamy arborio rice with black truffle</p>
                     <span class="price">$48</span>
                 </div>
             </div>
             <div class="featured-card" onclick="openProductModal('wagyu-steak')">
-                <img src="https://images.unsplash.com/photo-1546241072-48010ad2862c?w=800&q=80" alt="Wagyu Steak">
+                <img src="https://images.unsplash.com/photo-1546241072-48010ad2862c?w=600&q=80" alt="Wagyu Steak">
                 <div class="featured-card-content">
                     <h3>A5 Wagyu Steak</h3>
-                    <p>Premium Japanese beef with seasonal vegetables</p>
+                    <p>Premium Japanese beef</p>
                     <span class="price">$125</span>
                 </div>
             </div>
             <div class="featured-card" onclick="openProductModal('lobster-thermidor')">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Lobster Thermidor">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Lobster Thermidor">
                 <div class="featured-card-content">
                     <h3>Lobster Thermidor</h3>
-                    <p>Classic French preparation with cognac cream</p>
+                    <p>Classic French preparation</p>
                     <span class="price">$85</span>
                 </div>
             </div>
@@ -1782,12 +1675,12 @@
         </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- Menu Section - Images Only -->
     <section class="menu" id="menu">
         <div class="section-header">
             <p class="section-subtitle">Culinary Excellence</p>
             <h2 class="section-title">Our Menu</h2>
-            <p class="section-text">Each dish is a masterpiece, created with passion and the finest seasonal ingredients</p>
+            <p class="section-text">Each dish is a masterpiece, created with passion</p>
         </div>
         
         <div class="menu-tabs">
@@ -1795,141 +1688,73 @@
             <button class="menu-tab" onclick="filterMenu('starters')">Starters</button>
             <button class="menu-tab" onclick="filterMenu('mains')">Main Course</button>
             <button class="menu-tab" onclick="filterMenu('desserts')">Desserts</button>
-            <button class="menu-tab" onclick="filterMenu('drinks')">Drinks</button>
         </div>
 
         <div class="menu-grid" id="menuGrid">
             <!-- Starters -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('foie-gras')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=400&q=80" alt="Foie Gras">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Foie Gras Terrine</h3>
-                        <span class="price">$42</span>
-                    </div>
-                    <p>Brioche toast, fig compote, aged balsamic reduction</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Chef's Pick</span>
-                        <span class="tag">French</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Foie Gras">
+                <div class="menu-item-overlay">
+                    <h3>Foie Gras Terrine</h3>
+                    <span class="price">$42</span>
                 </div>
             </div>
 
             <div class="menu-item" data-category="starters" onclick="openProductModal('tuna-tartare')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Tuna Tartare">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Yellowfin Tuna Tartare</h3>
-                        <span class="price">$32</span>
-                    </div>
-                    <p>Avocado, citrus soy, sesame crisps, wasabi aioli</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Raw</span>
-                        <span class="tag">Fresh</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Tuna Tartare">
+                <div class="menu-item-overlay">
+                    <h3>Yellowfin Tuna Tartare</h3>
+                    <span class="price">$32</span>
                 </div>
             </div>
 
             <div class="menu-item" data-category="starters" onclick="openProductModal('scallop')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=400&q=80" alt="Scallops">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Pan-Seared Scallops</h3>
-                        <span class="price">$38</span>
-                    </div>
-                    <p>Cauliflower purée, crispy pancetta, brown butter</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Seafood</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Scallops">
+                <div class="menu-item-overlay">
+                    <h3>Pan-Seared Scallops</h3>
+                    <span class="price">$38</span>
                 </div>
             </div>
 
             <!-- Mains -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('duck-confit')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400&q=80" alt="Duck Confit">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Duck Confit</h3>
-                        <span class="price">$52</span>
-                    </div>
-                    <p>Crispy skin, lentils, cherry reduction, roasted root vegetables</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Signature</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&q=80" alt="Duck Confit">
+                <div class="menu-item-overlay">
+                    <h3>Duck Confit</h3>
+                    <span class="price">$52</span>
                 </div>
             </div>
 
             <div class="menu-item" data-category="mains" onclick="openProductModal('sea-bass')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80" alt="Sea Bass">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Mediterranean Sea Bass</h3>
-                        <span class="price">$46</span>
-                    </div>
-                    <p>Herb crust, ratatouille, saffron beurre blanc</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Fish</span>
-                        <span class="tag">Gluten Free</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Sea Bass">
+                <div class="menu-item-overlay">
+                    <h3>Mediterranean Sea Bass</h3>
+                    <span class="price">$46</span>
                 </div>
             </div>
 
             <div class="menu-item" data-category="mains" onclick="openProductModal('lamb-rack')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&q=80" alt="Lamb Rack">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Rack of Lamb</h3>
-                        <span class="price">$58</span>
-                    </div>
-                    <p>Herb crust, dauphinoise potatoes, red wine jus</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Premium</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80" alt="Lamb Rack">
+                <div class="menu-item-overlay">
+                    <h3>Rack of Lamb</h3>
+                    <span class="price">$58</span>
                 </div>
             </div>
 
             <!-- Desserts -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('chocolate-fondant')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=400&q=80" alt="Chocolate Fondant">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Chocolate Fondant</h3>
-                        <span class="price">$24</span>
-                    </div>
-                    <p>Valrhona chocolate, vanilla bean ice cream, berry coulis</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Sweet</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" alt="Chocolate Fondant">
+                <div class="menu-item-overlay">
+                    <h3>Chocolate Fondant</h3>
+                    <span class="price">$24</span>
                 </div>
             </div>
 
             <div class="menu-item" data-category="desserts" onclick="openProductModal('creme-brulee')">
-                <div class="menu-item-image">
-                    <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=400&q=80" alt="Crème Brûlée">
-                </div>
-                <div class="menu-item-content">
-                    <div class="menu-item-header">
-                        <h3>Crème Brûlée</h3>
-                        <span class="price">$18</span>
-                    </div>
-                    <p>Madagascar vanilla, caramelized sugar, fresh berries</p>
-                    <div class="menu-item-tags">
-                        <span class="tag">Classic</span>
-                    </div>
+                <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=600&q=80" alt="Crème Brûlée">
+                <div class="menu-item-overlay">
+                    <h3>Crème Brûlée</h3>
+                    <span class="price">$18</span>
                 </div>
             </div>
         </div>
@@ -1941,9 +1766,8 @@
             <div class="about-text">
                 <p class="section-subtitle">Our Story</p>
                 <h2>A Culinary Journey Born from Passion</h2>
-                <p>Founded in 2018, Ember & Oak represents the culmination of Chef Marcus Thornton's twenty-year journey through the world's most prestigious kitchens. From Paris to Tokyo, New York to Barcelona, each destination has influenced our unique approach to modern fine dining.</p>
-                <p>We believe in the transformative power of fire and the timeless beauty of natural materials. Our name reflects our commitment to wood-fired cooking techniques and sustainable, locally-sourced ingredients that honor both tradition and innovation.</p>
-                <p>Every dish that leaves our kitchen is a testament to our philosophy: respect for ingredients, mastery of technique, and an unwavering dedication to creating memorable experiences.</p>
+                <p>Founded in 2018, Ember & Oak represents the culmination of Chef Marcus Thornton's twenty-year journey through the world's most prestigious kitchens.</p>
+                <p>We believe in the transformative power of fire and the timeless beauty of natural materials. Our name reflects our commitment to wood-fired cooking techniques and sustainable, locally-sourced ingredients.</p>
                 
                 <div class="about-stats">
                     <div class="stat">
@@ -1967,7 +1791,7 @@
         </div>
     </section>
 
-    <!-- Chefs Section - Zoom Effect -->
+    <!-- Chefs Section - Real Images -->
     <section class="chefs">
         <div class="section-header">
             <p class="section-subtitle">Meet The Team</p>
@@ -2002,17 +1826,17 @@
         </div>
     </section>
 
-    <!-- Events Section - Modal -->
+    <!-- Events Section - Small Modal -->
     <section class="events" id="events">
         <div class="section-header">
             <p class="section-subtitle">Special Occasions</p>
             <h2 class="section-title">Upcoming Events</h2>
-            <p class="section-text">Join us for exclusive dining experiences, live music, and culinary celebrations</p>
+            <p class="section-text">Join us for exclusive dining experiences and culinary celebrations</p>
         </div>
         <div class="events-grid">
             <div class="event-card" onclick="openEventModal('jazz')">
                 <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80" alt="Jazz Night">
+                    <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=600&q=80" alt="Jazz Night">
                     <div class="event-date">
                         <span class="day">25</span>
                         <span class="month">Jan</span>
@@ -2020,7 +1844,7 @@
                 </div>
                 <div class="event-content">
                     <h3>Jazz & Wine Evening</h3>
-                    <p>Experience an intimate evening of smooth jazz performed by the Marcus Williams Quartet, paired with our exclusive wine tasting menu featuring rare vintages from our cellar.</p>
+                    <p>Experience an intimate evening of smooth jazz paired with our exclusive wine tasting menu.</p>
                     <div class="event-meta">
                         <span><i class="far fa-clock"></i> 7:00 PM - 11:00 PM</span>
                         <span><i class="fas fa-ticket-alt"></i> $150/pp</span>
@@ -2030,7 +1854,7 @@
 
             <div class="event-card" onclick="openEventModal('chefs-table')">
                 <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Chef's Table">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Chef's Table">
                     <div class="event-date">
                         <span class="day">02</span>
                         <span class="month">Feb</span>
@@ -2038,7 +1862,7 @@
                 </div>
                 <div class="event-content">
                     <h3>Chef's Table Experience</h3>
-                    <p>An exclusive 12-course tasting menu prepared tableside by Chef Marcus. Limited to 8 guests, this is the ultimate culinary journey through seasonal ingredients and innovative techniques.</p>
+                    <p>An exclusive 12-course tasting menu prepared tableside by Chef Marcus. Limited to 8 guests.</p>
                     <div class="event-meta">
                         <span><i class="far fa-clock"></i> 6:30 PM</span>
                         <span><i class="fas fa-ticket-alt"></i> $350/pp</span>
@@ -2048,7 +1872,7 @@
 
             <div class="event-card" onclick="openEventModal('valentines')">
                 <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=80" alt="Valentine's">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=600&q=80" alt="Valentine's">
                     <div class="event-date">
                         <span class="day">14</span>
                         <span class="month">Feb</span>
@@ -2056,7 +1880,7 @@
                 </div>
                 <div class="event-content">
                     <h3>Valentine's Gala Dinner</h3>
-                    <p>Celebrate love with our special Valentine's menu featuring aphrodisiac ingredients, champagne service, and live violin performance. Roses and chocolates included.</p>
+                    <p>Celebrate love with our special Valentine's menu featuring champagne and live violin.</p>
                     <div class="event-meta">
                         <span><i class="far fa-clock"></i> 6:00 PM - 10:00 PM</span>
                         <span><i class="fas fa-ticket-alt"></i> $200/couple</span>
@@ -2066,7 +1890,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - High Quality -->
+    <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="section-header">
             <p class="section-subtitle">Visual Journey</p>
@@ -2075,55 +1899,37 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=90" alt="Restaurant Interior">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Restaurant Interior">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90" alt="Fine Dining">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Fine Dining">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90" alt="Dish Presentation">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Dish Presentation">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90" alt="Wine Cellar">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=600&q=80" alt="Wine Cellar">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=90" alt="Kitchen">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80" alt="Kitchen">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=800&q=90" alt="Dessert">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=90" alt="Gourmet Dish">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=800&q=90" alt="Ambiance">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90" alt="Plating">
+                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Dessert">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
@@ -2151,7 +1957,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="review-text">"Stepping into Ember & Oak felt like crossing into another world. The lighting, the music, even the silence between songs—everything was perfectly tuned to the night. It wasn't just dinner, it was an experience that lingered long after we left."</p>
+                        <p class="review-text">"Stepping into Ember & Oak felt like crossing into another world. The lighting, the music, everything was perfectly tuned to the night."</p>
                         <div class="reviewer-info">
                             <div class="reviewer-avatar">
                                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Clara M">
@@ -2176,7 +1982,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="review-text">"From the moment we arrived, every detail felt intentional and refined. The flavors were beautifully balanced, the service was attentive without being intrusive, and the atmosphere created a sense of calm luxury."</p>
+                        <p class="review-text">"From the moment we arrived, every detail felt intentional and refined. The flavors were beautifully balanced."</p>
                         <div class="reviewer-info">
                             <div class="reviewer-avatar">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Michael R">
@@ -2184,56 +1990,6 @@
                             <div class="reviewer-details">
                                 <h4>Michael R.</h4>
                                 <p>Food Critic, London</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-image">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Sarah K">
-                    </div>
-                    <div class="review-content">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"The Wagyu steak was absolutely divine—melt-in-your-mouth perfection. The wine pairing suggestions were spot on, and our server made us feel like royalty. This is fine dining at its absolute best."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sarah K">
-                            </div>
-                            <div class="reviewer-details">
-                                <h4>Sarah K.</h4>
-                                <p>Culinary Enthusiast, Paris</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-image">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="David L">
-                    </div>
-                    <div class="review-content">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"We celebrated our anniversary here and it exceeded all expectations. The Chef's Table experience was extraordinary—watching Chef Marcus work was like witnessing art in motion. Unforgettable evening."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="David L">
-                            </div>
-                            <div class="reviewer-details">
-                                <h4>David L.</h4>
-                                <p>Business Executive, Tokyo</p>
                             </div>
                         </div>
                     </div>
@@ -2254,7 +2010,7 @@
         <div class="section-header">
             <p class="section-subtitle">Get In Touch</p>
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-text">We'd love to hear from you. Reach out for reservations, inquiries, or special requests.</p>
+            <p class="section-text">We'd love to hear from you. Reach out for reservations or inquiries.</p>
         </div>
         <div class="contact-content">
             <div class="contact-info">
@@ -2278,7 +2034,7 @@
                         <i class="fas fa-envelope"></i>
                         <div class="contact-item-content">
                             <h4>Email</h4>
-                            <p>reservations@emberandoak.com<br>events@emberandoak.com</p>
+                            <p>reservations@emberandoak.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -2301,10 +2057,6 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
@@ -2324,7 +2076,6 @@
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -2342,7 +2093,6 @@
                     <li><a href="#" onclick="openReserveModal()">Reservations</a></li>
                     <li><a href="#gallery">Private Dining</a></li>
                     <li><a href="#">Gift Cards</a></li>
-                    <li><a href="#">Catering</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -2350,12 +2100,11 @@
                 <ul>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Accessibility</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Ember & Oak. All rights reserved. Crafted with passion.</p>
+            <p>&copy; 2026 Ember & Oak. All rights reserved.</p>
         </div>
     </footer>
 
@@ -2377,16 +2126,14 @@
                     <p><i class="far fa-clock"></i> <strong>Hours:</strong> Tuesday - Sunday, 6:00 PM - 11:00 PM</p>
                 </div>
                 
-                <p style="margin-top: 2.5rem; font-style: italic; color: var(--copper); text-align: center; font-size: 1.1rem;">For parties larger than 8 or special events, please call us directly.</p>
-                
-                <button class="btn-primary copper-glow" style="margin-top: 2.5rem; width: 100%; padding: 1.3rem;" onclick="closeReserveModal(); window.location.href='tel:+442079460958'">
+                <button class="btn-primary copper-glow" style="margin-top: 2rem; width: 100%; padding: 1rem;" onclick="closeReserveModal(); window.location.href='tel:+442079460958'">
                     Call Now to Book
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Product Detail Modal -->
+    <!-- Product Detail Modal - Small -->
     <div class="modal" id="productModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeProductModal()">
@@ -2398,7 +2145,7 @@
         </div>
     </div>
 
-    <!-- Event Detail Modal -->
+    <!-- Event Detail Modal - Small -->
     <div class="modal" id="eventModal">
         <div class="modal-content event-modal-content">
             <button class="modal-close" onclick="closeEventModal()">
@@ -2411,129 +2158,118 @@
     </div>
 
     <script>
-        // Product Data with High Quality Images
+        // Product Data
         const products = {
             'truffle-risotto': {
                 name: 'Truffle Risotto',
                 price: '$48',
-                image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=1000&q=90',
-                description: 'Creamy arborio rice slowly cooked with white wine, parmesan, and finished with generous shavings of black truffle from Périgord. This signature dish represents the pinnacle of Italian comfort food elevated to fine dining standards.',
+                image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=90',
+                description: 'Creamy arborio rice slowly cooked with white wine, parmesan, and finished with generous shavings of black truffle from Périgord.',
                 ingredients: ['Arborio rice', 'Black truffle', 'Parmigiano-Reggiano', 'White wine', 'Vegetable stock', 'Shallots', 'Butter', 'Truffle oil'],
                 reviews: [
-                    { name: 'Sarah K.', stars: 5, text: 'The most incredible risotto I\'ve ever had. The truffle flavor is divine and the texture is perfectly creamy!' },
-                    { name: 'Michael R.', stars: 5, text: 'Perfectly creamy, rich without being heavy. A must-try dish. Worth every penny.' },
-                    { name: 'Emma T.', stars: 5, text: 'Best risotto in London, hands down. The truffle aroma alone is worth the visit.' }
+                    { name: 'Sarah K.', stars: 5, text: 'The most incredible risotto I\'ve ever had. The truffle flavor is divine!' },
+                    { name: 'Michael R.', stars: 5, text: 'Perfectly creamy, rich without being heavy. A must-try dish.' }
                 ]
             },
             'wagyu-steak': {
                 name: 'A5 Wagyu Steak',
                 price: '$125',
-                image: 'https://images.unsplash.com/photo-1546241072-48010ad2862c?w=1000&q=90',
-                description: 'Premium Japanese A5 Wagyu, grilled to perfection and served with seasonal vegetables and red wine reduction. This is the ultimate luxury dining experience, featuring the world\'s most marbled beef.',
+                image: 'https://images.unsplash.com/photo-1546241072-48010ad2862c?w=800&q=90',
+                description: 'Premium Japanese A5 Wagyu, grilled to perfection and served with seasonal vegetables and red wine reduction.',
                 ingredients: ['A5 Wagyu beef', 'Seasonal vegetables', 'Red wine reduction', 'Sea salt', 'Herb butter'],
                 reviews: [
-                    { name: 'David L.', stars: 5, text: 'Melt-in-your-mouth perfection. Worth every penny. The marbling is incredible.' },
-                    { name: 'Jennifer T.', stars: 5, text: 'Best steak of my life. The texture is like butter and the flavor is unmatched.' },
-                    { name: 'Robert H.', stars: 5, text: 'An unforgettable experience. This is what fine dining is all about.' }
+                    { name: 'David L.', stars: 5, text: 'Melt-in-your-mouth perfection. Worth every penny.' },
+                    { name: 'Jennifer T.', stars: 5, text: 'Best steak of my life. The texture is like butter.' }
                 ]
             },
             'lobster-thermidor': {
                 name: 'Lobster Thermidor',
                 price: '$85',
-                image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1000&q=90',
-                description: 'Classic French preparation with cognac cream sauce, gruyère cheese, and a perfectly golden gratinéed top. A timeless dish executed with modern precision.',
+                image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90',
+                description: 'Classic French preparation with cognac cream sauce, gruyère cheese, and a perfectly golden gratinéed top.',
                 ingredients: ['Whole lobster', 'Cognac', 'Gruyère cheese', 'Heavy cream', 'Dijon mustard', 'Tarragon', 'Egg yolks'],
                 reviews: [
-                    { name: 'Amanda P.', stars: 5, text: 'Rich, indulgent, and absolutely delicious. A true classic done right.' },
-                    { name: 'Thomas W.', stars: 5, text: 'The presentation is stunning and the taste is even better. Highly recommend.' }
+                    { name: 'Amanda P.', stars: 5, text: 'Rich, indulgent, and absolutely delicious. A true classic done right.' }
                 ]
             },
             'foie-gras': {
                 name: 'Foie Gras Terrine',
                 price: '$42',
-                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=1000&q=90',
-                description: 'Silky smooth foie gras terrine served with toasted brioche, fig compote, and aged balsamic reduction. An elegant starter that sets the tone for an exceptional meal.',
+                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=800&q=90',
+                description: 'Silky smooth foie gras terrine served with toasted brioche, fig compote, and aged balsamic reduction.',
                 ingredients: ['Foie gras', 'Brioche', 'Fig compote', 'Balsamic reduction', 'Sea salt', 'Black pepper'],
                 reviews: [
-                    { name: 'Robert H.', stars: 5, text: 'Buttery, rich, and perfectly balanced with the sweet fig. Exceptional quality.' },
-                    { name: 'Lisa M.', stars: 5, text: 'The perfect start to our meal. Smooth, luxurious, and beautifully presented.' }
+                    { name: 'Robert H.', stars: 5, text: 'Buttery, rich, and perfectly balanced with the sweet fig.' }
                 ]
             },
             'tuna-tartare': {
                 name: 'Yellowfin Tuna Tartare',
                 price: '$32',
-                image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1000&q=90',
-                description: 'Fresh yellowfin tuna with avocado, citrus soy dressing, sesame crisps, and wasabi aioli. A refreshing and vibrant dish that showcases the quality of our seafood.',
+                image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=90',
+                description: 'Fresh yellowfin tuna with avocado, citrus soy dressing, sesame crisps, and wasabi aioli.',
                 ingredients: ['Yellowfin tuna', 'Avocado', 'Sesame', 'Wasabi', 'Citrus soy', 'Crisps'],
                 reviews: [
-                    { name: 'Lisa M.', stars: 5, text: 'So fresh and beautifully presented. The wasabi aioli is amazing!' },
-                    { name: 'Christopher B.', stars: 5, text: 'The tuna melts in your mouth. Perfect balance of flavors.' }
+                    { name: 'Lisa M.', stars: 5, text: 'So fresh and beautifully presented. The wasabi aioli is amazing!' }
                 ]
             },
             'scallop': {
                 name: 'Pan-Seared Scallops',
                 price: '$38',
-                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=1000&q=90',
-                description: 'Perfectly seared scallops with cauliflower purée, crispy pancetta, and brown butter sauce. Each scallop is cooked to perfection with a golden crust and tender center.',
+                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=800&q=90',
+                description: 'Perfectly seared scallops with cauliflower purée, crispy pancetta, and brown butter sauce.',
                 ingredients: ['Jumbo scallops', 'Cauliflower', 'Pancetta', 'Brown butter', 'Capers', 'Lemon'],
                 reviews: [
-                    { name: 'Thomas W.', stars: 5, text: 'Cooked to perfection. Sweet, tender, and absolutely delicious.' },
-                    { name: 'Patricia G.', stars: 5, text: 'The best scallops I\'ve had outside of France. Impeccable preparation.' }
+                    { name: 'Thomas W.', stars: 5, text: 'Cooked to perfection. Sweet, tender, and absolutely delicious.' }
                 ]
             },
             'duck-confit': {
                 name: 'Duck Confit',
                 price: '$52',
-                image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=1000&q=90',
-                description: 'Crispy skin duck confit with lentils, cherry reduction, and roasted root vegetables. A French classic prepared with traditional techniques and modern presentation.',
+                image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=800&q=90',
+                description: 'Crispy skin duck confit with lentils, cherry reduction, and roasted root vegetables.',
                 ingredients: ['Duck leg', 'Lentils', 'Cherries', 'Root vegetables', 'Thyme', 'Garlic'],
                 reviews: [
-                    { name: 'Patricia G.', stars: 5, text: 'The skin is perfectly crispy and the meat is so tender! Outstanding dish.' },
-                    { name: 'Daniel K.', stars: 5, text: 'This is how duck confit should be done. Rich, flavorful, and beautifully executed.' }
+                    { name: 'Patricia G.', stars: 5, text: 'The skin is perfectly crispy and the meat is so tender!' }
                 ]
             },
             'sea-bass': {
                 name: 'Mediterranean Sea Bass',
                 price: '$46',
-                image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=1000&q=90',
-                description: 'Herb-crusted sea bass with ratatouille and saffron beurre blanc. Light, flavorful, and beautifully cooked with Mediterranean influences.',
+                image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=90',
+                description: 'Herb-crusted sea bass with ratatouille and saffron beurre blanc.',
                 ingredients: ['Sea bass', 'Herbs', 'Ratatouille', 'Saffron', 'Butter', 'White wine'],
                 reviews: [
-                    { name: 'Christopher B.', stars: 5, text: 'Light, flavorful, and beautifully cooked. The saffron sauce is incredible.' },
-                    { name: 'Nicole S.', stars: 5, text: 'Perfectly cooked fish with amazing flavors. A delightful main course.' }
+                    { name: 'Christopher B.', stars: 5, text: 'Light, flavorful, and beautifully cooked. The saffron sauce is incredible.' }
                 ]
             },
             'lamb-rack': {
                 name: 'Rack of Lamb',
                 price: '$58',
-                image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=1000&q=90',
-                description: 'Herb-crusted rack of lamb with dauphinoise potatoes and red wine jus. Premium lamb cooked to your preferred temperature with classic accompaniments.',
+                image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=90',
+                description: 'Herb-crusted rack of lamb with dauphinoise potatoes and red wine jus.',
                 ingredients: ['Rack of lamb', 'Herbs', 'Potatoes', 'Cream', 'Red wine', 'Shallots'],
                 reviews: [
-                    { name: 'Elizabeth D.', stars: 5, text: 'Perfectly pink and so flavorful. The herb crust adds amazing texture.' },
-                    { name: 'James P.', stars: 5, text: 'Tender, juicy, and cooked exactly as ordered. Exceptional quality.' }
+                    { name: 'Elizabeth D.', stars: 5, text: 'Perfectly pink and so flavorful. The herb crust adds amazing texture.' }
                 ]
             },
             'chocolate-fondant': {
                 name: 'Chocolate Fondant',
                 price: '$24',
-                image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=1000&q=90',
-                description: 'Valrhona chocolate fondant with vanilla bean ice cream and berry coulis. A decadent dessert with a molten center that flows like liquid gold.',
+                image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=800&q=90',
+                description: 'Valrhona chocolate fondant with vanilla bean ice cream and berry coulis.',
                 ingredients: ['Valrhona chocolate', 'Vanilla ice cream', 'Mixed berries', 'Sugar', 'Butter', 'Eggs'],
                 reviews: [
-                    { name: 'Nicole S.', stars: 5, text: 'Gooey center, rich chocolate flavor. Heaven on a plate! Best dessert ever.' },
-                    { name: 'Karen J.', stars: 5, text: 'The perfect ending to our meal. Warm, rich, and absolutely divine.' }
+                    { name: 'Nicole S.', stars: 5, text: 'Gooey center, rich chocolate flavor. Heaven on a plate!' }
                 ]
             },
             'creme-brulee': {
                 name: 'Crème Brûlée',
                 price: '$18',
-                image: 'https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=1000&q=90',
-                description: 'Madagascar vanilla crème brûlée with caramelized sugar and fresh berries. A classic French dessert with the perfect crack and creamy custard.',
+                image: 'https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=800&q=90',
+                description: 'Madagascar vanilla crème brûlée with caramelized sugar and fresh berries.',
                 ingredients: ['Heavy cream', 'Vanilla bean', 'Egg yolks', 'Sugar', 'Fresh berries'],
                 reviews: [
-                    { name: 'Karen J.', stars: 5, text: 'The perfect crack on top and so creamy inside. Classic done perfectly.' },
-                    { name: 'Michelle R.', stars: 5, text: 'Best crème brûlée in the city. The vanilla flavor is exceptional.' }
+                    { name: 'Karen J.', stars: 5, text: 'The perfect crack on top and so creamy inside. Classic done perfectly.' }
                 ]
             }
         };
@@ -2542,39 +2278,36 @@
         const events = {
             'jazz': {
                 title: 'Jazz & Wine Evening',
-                image: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=1000&q=90',
+                image: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=90',
                 date: 'January 25, 2026',
                 time: '7:00 PM - 11:00 PM',
                 price: '$150 per person',
-                description: 'Experience an intimate evening of smooth jazz performed by the Marcus Williams Quartet, one of London\'s most acclaimed jazz ensembles. This exclusive event features our sommelier-curated wine tasting menu with rare vintages from our cellar, perfectly paired with each course.',
-                details: 'The evening begins with a welcome champagne reception, followed by a four-course dinner featuring seasonal ingredients prepared by Chef Marcus. The Marcus Williams Quartet will perform classic jazz standards and contemporary pieces throughout the evening, creating the perfect ambiance for an unforgettable night.',
-                includes: ['Welcome champagne reception', 'Four-course tasting menu', 'Wine pairings with each course', 'Live jazz performance', 'Commemorative menu card']
+                description: 'Experience an intimate evening of smooth jazz performed by the Marcus Williams Quartet, paired with our exclusive wine tasting menu featuring rare vintages from our cellar.',
+                includes: ['Welcome champagne reception', 'Four-course tasting menu', 'Wine pairings', 'Live jazz performance']
             },
             'chefs-table': {
                 title: 'Chef\'s Table Experience',
-                image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=90',
+                image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90',
                 date: 'February 2, 2026',
                 time: '6:30 PM',
                 price: '$350 per person',
-                description: 'An exclusive 12-course tasting menu prepared tableside by Chef Marcus Thornton. Limited to just 8 guests, this is the ultimate culinary journey through seasonal ingredients and innovative techniques that showcase the best of modern fine dining.',
-                details: 'Guests will be seated at a private table in the kitchen, offering an intimate view of the culinary team at work. Chef Marcus will personally guide you through each course, explaining the inspiration, techniques, and ingredients. This is a unique opportunity to interact with the chef and witness the artistry behind each dish.',
-                includes: ['12-course tasting menu', 'Wine pairings', 'Personal interaction with Chef Marcus', 'Kitchen tour', 'Signed cookbook', 'Recipe cards']
+                description: 'An exclusive 12-course tasting menu prepared tableside by Chef Marcus. Limited to just 8 guests.',
+                includes: ['12-course tasting menu', 'Wine pairings', 'Personal interaction with Chef Marcus', 'Kitchen tour']
             },
             'valentines': {
                 title: 'Valentine\'s Gala Dinner',
-                image: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=1000&q=90',
+                image: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90',
                 date: 'February 14, 2026',
                 time: '6:00 PM - 10:00 PM',
                 price: '$200 per couple',
-                description: 'Celebrate love with our special Valentine\'s menu featuring aphrodisiac ingredients, champagne service, and live violin performance. This romantic evening includes roses and artisanal chocolates.',
-                details: 'Our Valentine\'s Gala features a specially curated menu designed to delight and romance. Each course incorporates ingredients known for their romantic properties, from oysters to dark chocolate. A live violinist will perform romantic classics throughout the evening, creating an intimate atmosphere perfect for celebrating your love.',
-                includes: ['Five-course romantic menu', 'Champagne toast', 'Live violin performance', 'Red roses', 'Artisanal chocolates', 'Commemorative photo']
+                description: 'Celebrate love with our special Valentine\'s menu featuring aphrodisiac ingredients, champagne service, and live violin performance.',
+                includes: ['Five-course romantic menu', 'Champagne toast', 'Live violin', 'Red roses', 'Artisanal chocolates']
             }
         };
 
         // Reviews Slider
         let currentSlide = 0;
-        const totalSlides = 4;
+        const totalSlides = 2;
         const slider = document.getElementById('reviewsSlider');
         const dotsContainer = document.getElementById('sliderDots');
 
@@ -2666,31 +2399,24 @@
             let ingredientsHTML = product.ingredients.map(ing => `<li>${ing}</li>`).join('');
 
             modalContent.innerHTML = `
-                <div class="product-detail-grid">
-                    <div class="product-detail-image">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="product-detail-info">
-                        <h2>${product.name}</h2>
-                        <span class="price">${product.price}</span>
-                        <p>${product.description}</p>
-                        
-                        <div class="ingredients-list">
-                            <h4>Ingredients</h4>
-                            <ul>${ingredientsHTML}</ul>
-                        </div>
-                        
-                        <div class="review-section">
-                            <h4>Guest Reviews</h4>
-                            ${reviewsHTML}
-                        </div>
-                        
-                        <div class="modal-cta">
-                            <button class="btn-primary copper-glow" onclick="closeProductModal(); openReserveModal()" style="padding: 1.3rem 3rem; font-size: 1rem;">
-                                Reserve to Order This Dish
-                            </button>
-                        </div>
-                    </div>
+                <h2>${product.name}</h2>
+                <span class="price">${product.price}</span>
+                <p>${product.description}</p>
+                
+                <div class="ingredients-list">
+                    <h4>Ingredients</h4>
+                    <ul>${ingredientsHTML}</ul>
+                </div>
+                
+                <div class="review-section">
+                    <h4>Guest Reviews</h4>
+                    ${reviewsHTML}
+                </div>
+                
+                <div class="modal-cta">
+                    <button class="btn-primary copper-glow" onclick="closeProductModal(); openReserveModal()" style="padding: 1rem 2.5rem;">
+                        Reserve to Order
+                    </button>
                 </div>
             `;
 
@@ -2720,7 +2446,6 @@
                 <div class="event-modal-details">
                     <h3>About This Event</h3>
                     <p>${event.description}</p>
-                    <p>${event.details}</p>
                 </div>
                 <div class="event-modal-info">
                     <div class="event-info-item">
@@ -2740,13 +2465,13 @@
                         <span>Ember & Oak, London</span>
                     </div>
                 </div>
-                <div style="margin-bottom: 2rem;">
-                    <h3 style="color: var(--copper); margin-bottom: 1rem; font-size: 1.3rem;">What's Included</h3>
-                    <ul style="list-style: none; color: var(--text-secondary);">
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="color: var(--copper); margin-bottom: 0.8rem; font-size: 1.1rem;">What's Included</h3>
+                    <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
                         ${includesHTML}
                     </ul>
                 </div>
-                <button class="btn-primary copper-glow" onclick="closeEventModal(); openReserveModal()" style="width: 100%; padding: 1.3rem; font-size: 1rem;">
+                <button class="btn-primary copper-glow" onclick="closeEventModal(); openReserveModal()" style="width: 100%; padding: 1rem;">
                     Reserve Your Spot
                 </button>
             `;
@@ -2770,14 +2495,14 @@
 
             items.forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'flex';
+                    item.style.display = 'block';
                     setTimeout(() => {
                         item.style.opacity = '1';
-                        item.style.transform = 'translateX(0)';
+                        item.style.transform = 'translateY(0)';
                     }, 10);
                 } else {
                     item.style.opacity = '0';
-                    item.style.transform = 'translateX(-20px)';
+                    item.style.transform = 'translateY(-20px)';
                     setTimeout(() => {
                         item.style.display = 'none';
                     }, 300);
@@ -2812,29 +2537,6 @@
                     });
                 }
             });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.featured-card, .menu-item, .chef-card, .event-card, .gallery-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
