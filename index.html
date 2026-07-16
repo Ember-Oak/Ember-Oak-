@@ -35,7 +35,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-chocolate);
+            background-color: var(--darker-chocolate);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -111,12 +111,12 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(46,27,21,0.95), transparent);
+            background: linear-gradient(to bottom, rgba(26,15,13,0.95), transparent);
             transition: all 0.4s ease;
         }
 
         .navbar.scrolled {
-            background: rgba(46,27,21,0.98);
+            background: rgba(26,15,13,0.98);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             box-shadow: 0 2px 20px rgba(0,0,0,0.5);
@@ -187,7 +187,7 @@
 
         .reserve-btn:hover {
             background: var(--copper);
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
             box-shadow: 0 0 30px rgba(184, 115, 51, 0.6);
         }
 
@@ -232,7 +232,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(46,27,21,0.7) 0%, rgba(26,15,13,0.85) 50%, rgba(46,27,21,0.9) 100%);
+            background: linear-gradient(to bottom, rgba(26,15,13,0.7) 0%, rgba(26,15,13,0.85) 50%, rgba(26,15,13,0.9) 100%);
             z-index: -1;
         }
 
@@ -272,29 +272,17 @@
             color: var(--copper);
         }
 
-        .hero-text {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-weight: 300;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 1.1s;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .hero-buttons {
             display: flex;
             gap: 2rem;
             justify-content: center;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 1.4s;
+            animation: fadeInUp 1s ease forwards 1.1s;
         }
 
         .btn-primary {
             background: var(--copper);
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
             padding: 1.2rem 3rem;
             border: none;
             cursor: pointer;
@@ -421,7 +409,7 @@
             left: 0;
             right: 0;
             padding: 3rem 2rem 2rem;
-            background: linear-gradient(to top, rgba(46,27,21,0.98) 0%, rgba(46,27,21,0.7) 50%, transparent 100%);
+            background: linear-gradient(to top, rgba(26,15,13,0.98) 0%, rgba(26,15,13,0.7) 50%, transparent 100%);
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.5s ease;
@@ -479,7 +467,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(46,27,21,0.7);
+            background: rgba(26,15,13,0.7);
             z-index: -1;
         }
 
@@ -508,7 +496,7 @@
 
         /* Menu Section */
         .menu {
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
         }
 
         .menu-tabs {
@@ -768,7 +756,7 @@
 
         /* Gallery Section - High Quality */
         .gallery {
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
         }
 
         .gallery-grid {
@@ -818,7 +806,7 @@
 
         .gallery-overlay i {
             font-size: 2.5rem;
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
         }
 
         /* Events Section - Modal */
@@ -835,7 +823,7 @@
         }
 
         .event-card {
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             overflow: hidden;
             transition: all 0.4s ease;
@@ -871,7 +859,7 @@
             top: 2rem;
             left: 2rem;
             background: var(--copper);
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
             padding: 1.2rem;
             text-align: center;
             min-width: 80px;
@@ -942,7 +930,7 @@
         .review-card {
             min-width: 100%;
             padding: 3rem;
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             display: flex;
             gap: 3rem;
@@ -1035,7 +1023,7 @@
 
         .slider-btn:hover {
             background: var(--copper);
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
         }
 
         .slider-dots {
@@ -1062,7 +1050,7 @@
 
         /* Contact Section */
         .contact {
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
         }
 
         .contact-content {
@@ -1131,7 +1119,7 @@
         .form-group textarea {
             width: 100%;
             padding: 1.2rem;
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
@@ -1198,7 +1186,7 @@
         .social-links a:hover {
             background: var(--copper);
             border-color: var(--copper);
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
             transform: translateY(-3px);
         }
 
@@ -1284,7 +1272,7 @@
 
         .modal-close:hover {
             background: var(--copper);
-            color: var(--dark-chocolate);
+            color: var(--darker-chocolate);
             transform: rotate(90deg);
         }
 
@@ -1336,7 +1324,7 @@
         .ingredients-list {
             margin: 2.5rem 0;
             padding: 2rem;
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
         }
 
@@ -1382,7 +1370,7 @@
         }
 
         .review-item {
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             padding: 2rem;
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--copper);
@@ -1446,7 +1434,7 @@
 
         .event-modal-details {
             padding: 2rem;
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
             margin-bottom: 2rem;
         }
@@ -1505,7 +1493,7 @@
         .contact-info-modal {
             margin-top: 3rem;
             padding: 3rem;
-            background: var(--dark-chocolate);
+            background: var(--darker-chocolate);
             border: 1px solid var(--border-color);
         }
 
@@ -1574,7 +1562,7 @@
                 right: -100%;
                 width: 100%;
                 height: 100vh;
-                background: var(--dark-chocolate);
+                background: var(--darker-chocolate);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -1737,7 +1725,6 @@
         <div class="hero-content">
             <p class="hero-subtitle">Welcome to Ember & Oak</p>
             <h1 class="hero-title">Where <em>Fire</em> Meets <em>Fine</em> Dining</h1>
-            <p class="hero-text">Experience culinary artistry in an atmosphere of refined elegance. Every dish tells a story of passion, precision, and exceptional flavors.</p>
             <div class="hero-buttons">
                 <button class="btn-primary copper-glow" onclick="openReserveModal()">Book a Table</button>
                 <a href="#menu" class="btn-secondary">View Menu</a>
