@@ -255,6 +255,23 @@
             font-weight: 300;
         }
 
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.8s;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--text-primary);
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--copper);
+        }
+
         .hero-buttons {
             display: flex;
             gap: 2rem;
@@ -689,7 +706,7 @@
             line-height: 1.6;
         }
 
-        /* Gallery Section */
+        /* Gallery Section - More High Quality Images */
         .gallery {
             background: var(--darker-chocolate);
         }
@@ -744,7 +761,7 @@
             color: var(--darker-chocolate);
         }
 
-        /* Events Section */
+        /* Events Section - Small Modal */
         .events {
             background: var(--light-chocolate);
         }
@@ -843,7 +860,7 @@
             margin-right: 0.5rem;
         }
 
-        /* Reviews Slider Section */
+        /* Reviews Slider Section - Auto Moving */
         .reviews {
             background: var(--darker-chocolate);
             overflow: hidden;
@@ -1610,7 +1627,7 @@
         </div>
     </nav>
 
-    <!-- Full Screen Video Hero - No Text -->
+    <!-- Full Screen Video Hero -->
     <section class="hero" id="home">
         <video class="hero-video-bg" autoplay muted loop playsinline>
             <source src="https://cdn.shopify.com/videos/c/o/v/c271c6c9e53c41419de2cf2b26141d77.mp4" type="video/mp4">
@@ -1618,6 +1635,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-subtitle">Welcome to Ember & Oak</p>
+            <h1 class="hero-title">No Rush. Night Is Ours.</h1>
             <div class="hero-buttons">
                 <button class="btn-primary copper-glow" onclick="openReserveModal()">Book a Table</button>
                 <a href="#menu" class="btn-secondary">View Menu</a>
@@ -1890,7 +1908,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section - More High Quality Images -->
     <section class="gallery" id="gallery">
         <div class="section-header">
             <p class="section-subtitle">Visual Journey</p>
@@ -1899,37 +1917,73 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Restaurant Interior">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=90" alt="Restaurant Interior">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Fine Dining">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90" alt="Fine Dining">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Dish Presentation">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90" alt="Dish Presentation">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=600&q=80" alt="Wine Cellar">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90" alt="Wine Cellar">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80" alt="Kitchen">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=90" alt="Kitchen">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Dessert">
+                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=800&q=90" alt="Dessert">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=90" alt="Gourmet Dish">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=800&q=90" alt="Ambiance">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90" alt="Plating">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90" alt="Wine Service">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=90" alt="Dining Area">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90" alt="Table Setting">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
@@ -1937,7 +1991,7 @@
         </div>
     </section>
 
-    <!-- Reviews Slider Section -->
+    <!-- Reviews Slider Section - Auto Moving -->
     <section class="reviews">
         <div class="section-header">
             <p class="section-subtitle">Testimonials</p>
@@ -1990,6 +2044,106 @@
                             <div class="reviewer-details">
                                 <h4>Michael R.</h4>
                                 <p>Food Critic, London</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Sarah K">
+                    </div>
+                    <div class="review-content">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"The Wagyu steak was absolutely divine—melt-in-your-mouth perfection. The wine pairing suggestions were spot on."</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sarah K">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Sarah K.</h4>
+                                <p>Culinary Enthusiast, Paris</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="David L">
+                    </div>
+                    <div class="review-content">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"We celebrated our anniversary here and it exceeded all expectations. The Chef's Table experience was extraordinary."</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="David L">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>David L.</h4>
+                                <p>Business Executive, Tokyo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Emma T">
+                    </div>
+                    <div class="review-content">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Best risotto in London, hands down. The truffle aroma alone is worth the visit. An unforgettable dining experience."</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Emma T">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Emma T.</h4>
+                                <p>Food Blogger, Milan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80" alt="Robert H">
+                    </div>
+                    <div class="review-content">
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Buttery, rich, and perfectly balanced with the sweet fig. Exceptional quality. The perfect start to our meal."</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Robert H">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Robert H.</h4>
+                                <p>Chef, Barcelona</p>
                             </div>
                         </div>
                     </div>
@@ -2305,9 +2459,9 @@
             }
         };
 
-        // Reviews Slider
+        // Reviews Slider - Auto Moving
         let currentSlide = 0;
-        const totalSlides = 2;
+        const totalSlides = 6;
         const slider = document.getElementById('reviewsSlider');
         const dotsContainer = document.getElementById('sliderDots');
 
@@ -2339,10 +2493,10 @@
             });
         }
 
-        // Auto-play slider
+        // Auto-play slider every 5 seconds
         setInterval(() => {
             changeSlide(1);
-        }, 6000);
+        }, 5000);
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
