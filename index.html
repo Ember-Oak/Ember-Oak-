@@ -258,7 +258,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26,15,13,0.2); /* Very light overlay */
+            background: rgba(26,15,13,0.2);
             z-index: -1;
         }
 
@@ -297,40 +297,22 @@
             margin-bottom: 1rem;
         }
 
-        /* Hero Content (Main) */
+        /* Hero Content (Main) - Buttons at bottom */
         .hero-content {
-            position: relative;
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 2;
             text-align: center;
             max-width: 1000px;
             padding: 0 2rem;
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease 2s, transform 1s ease 2s; /* Delayed appearance */
+            transition: opacity 1s ease 2s;
         }
 
         .hero-content.visible {
             opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            color: var(--copper);
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 7rem);
-            line-height: 1.1;
-            margin-bottom: 3rem;
-            font-weight: 400;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            color: var(--text-primary);
         }
 
         .hero-buttons {
@@ -436,7 +418,7 @@
             line-height: 1.8;
         }
 
-        /* Featured Section - Small Cards */
+        /* Featured Section */
         .featured {
             background: var(--darker-chocolate);
         }
@@ -492,7 +474,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Video Banner */
+        /* Video Banner - With Sound */
         .video-banner {
             height: 80vh;
             position: relative;
@@ -547,7 +529,7 @@
             font-weight: 300;
         }
 
-        /* Menu Section - Images Only */
+        /* Menu Section */
         .menu {
             background: var(--darker-chocolate);
         }
@@ -708,7 +690,7 @@
             margin-top: 0.5rem;
         }
 
-        /* Chefs Section - Real Images */
+        /* Chefs Section */
         .chefs {
             background: var(--darker-chocolate);
         }
@@ -771,7 +753,7 @@
             line-height: 1.6;
         }
 
-        /* Gallery Section - More High Quality Images */
+        /* Gallery Section */
         .gallery {
             background: var(--darker-chocolate);
         }
@@ -826,7 +808,7 @@
             color: var(--darker-chocolate);
         }
 
-        /* Events Section - Small Modal */
+        /* Events Section */
         .events {
             background: var(--light-chocolate);
         }
@@ -925,7 +907,7 @@
             margin-right: 0.5rem;
         }
 
-        /* Reviews Slider Section - Auto Moving */
+        /* Reviews Slider Section */
         .reviews {
             background: var(--darker-chocolate);
             overflow: hidden;
@@ -1240,7 +1222,7 @@
             font-size: 0.85rem;
         }
 
-        /* Small Modal */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -1401,7 +1383,7 @@
             text-align: center;
         }
 
-        /* Event Small Modal */
+        /* Event Modal */
         .event-modal-content {
             max-width: 600px;
         }
@@ -1694,12 +1676,12 @@
 
     <!-- Full Screen Video Hero -->
     <section class="hero" id="home">
-        <!-- Video Background -->
+        <!-- Video Background - Muted -->
         <video class="hero-video-bg" autoplay muted loop playsinline>
             <source src="https://cdn.shopify.com/videos/c/o/v/c271c6c9e53c41419de2cf2b26141d77.mp4" type="video/mp4">
         </video>
         
-        <!-- Light Overlay for visibility -->
+        <!-- Light Overlay -->
         <div class="hero-overlay"></div>
 
         <!-- Intro Overlay (Welcome Text) -->
@@ -1709,10 +1691,8 @@
             </div>
         </div>
 
-        <!-- Main Hero Content -->
+        <!-- Main Hero Content - Buttons at bottom -->
         <div class="hero-content" id="heroContent">
-            <p class="hero-subtitle">No Rush. Night Is Ours.</p>
-            <h1 class="hero-title">No Rush.<br>Night Is Ours.</h1>
             <div class="hero-buttons">
                 <button class="btn-primary copper-glow" onclick="openReserveModal()">Book a Table</button>
                 <a href="#menu" class="btn-secondary">View Menu</a>
@@ -1724,7 +1704,7 @@
         </div>
     </section>
 
-    <!-- Featured Section - Small Cards -->
+    <!-- Featured Section -->
     <section class="featured">
         <div class="section-header">
             <p class="section-subtitle">Our Signature</p>
@@ -1759,9 +1739,9 @@
         </div>
     </section>
 
-    <!-- Video Banner -->
+    <!-- Video Banner - With Sound -->
     <section class="video-banner">
-        <video autoplay muted loop playsinline>
+        <video autoplay loop playsinline>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-people-clinking-glasses-of-champagne-in-a-party-39977-large.mp4" type="video/mp4">
         </video>
         <div class="video-banner-content">
@@ -1771,7 +1751,7 @@
         </div>
     </section>
 
-    <!-- Menu Section - Images Only -->
+    <!-- Menu Section -->
     <section class="menu" id="menu">
         <div class="section-header">
             <p class="section-subtitle">Culinary Excellence</p>
@@ -1787,7 +1767,6 @@
         </div>
 
         <div class="menu-grid" id="menuGrid">
-            <!-- Starters -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('foie-gras')">
                 <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Foie Gras">
                 <div class="menu-item-overlay">
@@ -1812,7 +1791,6 @@
                 </div>
             </div>
 
-            <!-- Mains -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('duck-confit')">
                 <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&q=80" alt="Duck Confit">
                 <div class="menu-item-overlay">
@@ -1837,7 +1815,6 @@
                 </div>
             </div>
 
-            <!-- Desserts -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('chocolate-fondant')">
                 <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" alt="Chocolate Fondant">
                 <div class="menu-item-overlay">
@@ -1887,7 +1864,7 @@
         </div>
     </section>
 
-    <!-- Chefs Section - Real Images -->
+    <!-- Chefs Section -->
     <section class="chefs">
         <div class="section-header">
             <p class="section-subtitle">Meet The Team</p>
@@ -1922,7 +1899,7 @@
         </div>
     </section>
 
-    <!-- Events Section - Small Modal -->
+    <!-- Events Section -->
     <section class="events" id="events">
         <div class="section-header">
             <p class="section-subtitle">Special Occasions</p>
@@ -1986,7 +1963,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - More High Quality Images -->
+    <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="section-header">
             <p class="section-subtitle">Visual Journey</p>
@@ -2069,7 +2046,7 @@
         </div>
     </section>
 
-    <!-- Reviews Slider Section - Auto Moving -->
+    <!-- Reviews Slider Section -->
     <section class="reviews">
         <div class="section-header">
             <p class="section-subtitle">Testimonials</p>
@@ -2365,26 +2342,24 @@
         </div>
     </div>
 
-    <!-- Product Detail Modal - Small -->
+    <!-- Product Detail Modal -->
     <div class="modal" id="productModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeProductModal()">
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-body" id="productModalContent">
-                <!-- Content will be dynamically inserted -->
             </div>
         </div>
     </div>
 
-    <!-- Event Detail Modal - Small -->
+    <!-- Event Detail Modal -->
     <div class="modal" id="eventModal">
         <div class="modal-content event-modal-content">
             <button class="modal-close" onclick="closeEventModal()">
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-body" id="eventModalContent">
-                <!-- Content will be dynamically inserted -->
             </div>
         </div>
     </div>
@@ -2537,13 +2512,12 @@
             }
         };
 
-        // Reviews Slider - Auto Moving
+        // Reviews Slider
         let currentSlide = 0;
         const totalSlides = 6;
         const slider = document.getElementById('reviewsSlider');
         const dotsContainer = document.getElementById('sliderDots');
 
-        // Create dots
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('div');
             dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -2571,7 +2545,6 @@
             });
         }
 
-        // Auto-play slider every 5 seconds
         setInterval(() => {
             changeSlide(1);
         }, 5000);
@@ -2594,7 +2567,6 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -2609,7 +2581,7 @@
                 
                 intro.classList.add('hidden');
                 content.classList.add('visible');
-            }, 2500); // 2.5 seconds delay
+            }, 2500);
         });
 
         // Modal functions
@@ -2672,7 +2644,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Event Modal Functions
         function openEventModal(eventId) {
             const event = events[eventId];
             if (!event) return;
@@ -2728,7 +2699,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Menu filter
         function filterMenu(category) {
             const tabs = document.querySelectorAll('.menu-tab');
             const items = document.querySelectorAll('.menu-item');
@@ -2753,14 +2723,12 @@
             });
         }
 
-        // Contact form handler
         function handleContactSubmit(e) {
             e.preventDefault();
             alert('Thank you for your message! We will get back to you within 24 hours.');
             e.target.reset();
         }
 
-        // Close modals on outside click
         window.addEventListener('click', (e) => {
             if (e.target.classList.contains('modal')) {
                 e.target.classList.remove('active');
@@ -2768,7 +2736,6 @@
             }
         });
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
