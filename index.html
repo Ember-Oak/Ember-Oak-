@@ -232,7 +232,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(26,15,13,0.7) 0%, rgba(26,15,13,0.85) 50%, rgba(26,15,13,0.9) 100%);
+            background: linear-gradient(to bottom, rgba(26,15,13,0.4) 0%, rgba(26,15,13,0.5) 50%, rgba(26,15,13,0.6) 100%);
             z-index: -1;
         }
 
@@ -255,29 +255,13 @@
             font-weight: 300;
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            font-weight: 400;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.8s;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            color: var(--text-primary);
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: var(--copper);
-        }
-
         .hero-buttons {
             display: flex;
             gap: 2rem;
             justify-content: center;
             opacity: 0;
             animation: fadeInUp 1s ease forwards 1.1s;
+            margin-top: 2rem;
         }
 
         .btn-primary {
@@ -1635,7 +1619,6 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-subtitle">Welcome to Ember & Oak</p>
-            <h1 class="hero-title">No Rush. Night Is Ours.</h1>
             <div class="hero-buttons">
                 <button class="btn-primary copper-glow" onclick="openReserveModal()">Book a Table</button>
                 <a href="#menu" class="btn-secondary">View Menu</a>
