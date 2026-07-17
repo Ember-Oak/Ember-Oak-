@@ -529,7 +529,7 @@
             font-weight: 300;
         }
 
-        /* Menu Section */
+        /* Menu Section - Redesigned to match attached image */
         .menu {
             background: var(--darker-chocolate);
         }
@@ -564,27 +564,47 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .menu-item {
+            background: #0a0a0a;
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .menu-item:hover {
             border-color: var(--copper);
+            transform: translateY(-5px);
+        }
+
+        .menu-item-image-container {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            position: relative;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .menu-item img {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -593,25 +613,67 @@
             transform: scale(1.05);
         }
 
-        .menu-item-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(26,15,13,0.95), transparent);
-            padding: 1.5rem;
+        .menu-item-info {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
         }
 
-        .menu-item-overlay h3 {
-            font-size: 1.3rem;
+        .menu-item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
             color: var(--text-primary);
-            margin-bottom: 0.3rem;
+            font-weight: 500;
         }
 
-        .menu-item-overlay .price {
+        .menu-item-price {
             color: var(--copper);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .menu-item-heart {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .menu-item-heart i {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item-heart:hover {
+            border-color: var(--copper);
+            background: rgba(184, 115, 51, 0.1);
+        }
+
+        .menu-item-heart:hover i {
+            color: var(--copper);
+        }
+
+        .menu-item-heart.active {
+            border-color: var(--copper);
+            background: var(--copper);
+        }
+
+        .menu-item-heart.active i {
+            color: var(--darker-chocolate);
         }
 
         /* About Section */
@@ -688,6 +750,44 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-top: 0.5rem;
+        }
+
+        /* Second Video Banner Section */
+        .video-banner-secondary {
+            height: 70vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--darker-chocolate);
+        }
+
+        .video-banner-secondary video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .video-banner-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26,15,13,0.6);
+            z-index: 1;
+        }
+
+        .video-banner-secondary .video-banner-content {
+            position: relative;
+            z-index: 2;
         }
 
         /* Chefs Section */
@@ -1615,6 +1715,11 @@
             .chefs-grid {
                 grid-template-columns: 1fr;
             }
+
+            .menu-item-image-container {
+                width: 240px;
+                height: 240px;
+            }
         }
 
         @media (max-width: 640px) {
@@ -1674,10 +1779,10 @@
         </div>
     </nav>
 
-    <!-- Full Screen Video Hero -->
+    <!-- Full Screen Video Hero - NOW WITH SOUND -->
     <section class="hero" id="home">
-        <!-- Video Background - Muted -->
-        <video class="hero-video-bg" autoplay muted loop playsinline>
+        <!-- Video Background - Removed muted attribute for sound -->
+        <video class="hero-video-bg" autoplay loop playsinline>
             <source src="https://cdn.shopify.com/videos/c/o/v/c271c6c9e53c41419de2cf2b26141d77.mp4" type="video/mp4">
         </video>
         
@@ -1704,7 +1809,7 @@
         </div>
     </section>
 
-    <!-- Featured Section -->
+    <!-- Featured Section - Updated Images -->
     <section class="featured">
         <div class="section-header">
             <p class="section-subtitle">Our Signature</p>
@@ -1741,7 +1846,7 @@
 
     <!-- Video Banner - With Sound -->
     <section class="video-banner">
-        <video autoplay loop playsinline>
+        <video autoplay loop playsinline muted>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-people-clinking-glasses-of-champagne-in-a-party-39977-large.mp4" type="video/mp4">
         </video>
         <div class="video-banner-content">
@@ -1751,7 +1856,7 @@
         </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- Menu Section - REDESIGNED TO MATCH ATTACHED IMAGE -->
     <section class="menu" id="menu">
         <div class="section-header">
             <p class="section-subtitle">Culinary Excellence</p>
@@ -1767,68 +1872,180 @@
         </div>
 
         <div class="menu-grid" id="menuGrid">
+            <!-- Truffle Pasta - $65 -->
+            <div class="menu-item" data-category="mains" onclick="openProductModal('truffle-pasta')">
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="Truffle Pasta">
+                </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Truffle Pasta</div>
+                        <div class="menu-item-price">$65</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+
+            <!-- Sea Urchin Risotto - $90 -->
+            <div class="menu-item" data-category="mains" onclick="openProductModal('sea-urchin-risotto')">
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Sea Urchin Risotto">
+                </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Sea Urchin Risotto</div>
+                        <div class="menu-item-price">$90</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+
+            <!-- Matcha Lava Cake - $35 -->
+            <div class="menu-item" data-category="desserts" onclick="openProductModal('matcha-lava-cake')">
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1601312348631-30394e5a41b9?w=600&q=80" alt="Matcha Lava Cake">
+                </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Matcha Lava Cake</div>
+                        <div class="menu-item-price">$35</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+
+            <!-- Foie Gras Terrine -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('foie-gras')">
-                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Foie Gras">
-                <div class="menu-item-overlay">
-                    <h3>Foie Gras Terrine</h3>
-                    <span class="price">$42</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Foie Gras">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Foie Gras Terrine</div>
+                        <div class="menu-item-price">$42</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Tuna Tartare -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('tuna-tartare')">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Tuna Tartare">
-                <div class="menu-item-overlay">
-                    <h3>Yellowfin Tuna Tartare</h3>
-                    <span class="price">$32</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Tuna Tartare">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Yellowfin Tuna Tartare</div>
+                        <div class="menu-item-price">$32</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Pan-Seared Scallops -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('scallop')">
-                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Scallops">
-                <div class="menu-item-overlay">
-                    <h3>Pan-Seared Scallops</h3>
-                    <span class="price">$38</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=600&q=80" alt="Scallops">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Pan-Seared Scallops</div>
+                        <div class="menu-item-price">$38</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Duck Confit -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('duck-confit')">
-                <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&q=80" alt="Duck Confit">
-                <div class="menu-item-overlay">
-                    <h3>Duck Confit</h3>
-                    <span class="price">$52</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&q=80" alt="Duck Confit">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Duck Confit</div>
+                        <div class="menu-item-price">$52</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Mediterranean Sea Bass -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('sea-bass')">
-                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Sea Bass">
-                <div class="menu-item-overlay">
-                    <h3>Mediterranean Sea Bass</h3>
-                    <span class="price">$46</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Sea Bass">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Mediterranean Sea Bass</div>
+                        <div class="menu-item-price">$46</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Rack of Lamb -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('lamb-rack')">
-                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80" alt="Lamb Rack">
-                <div class="menu-item-overlay">
-                    <h3>Rack of Lamb</h3>
-                    <span class="price">$58</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80" alt="Lamb Rack">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Rack of Lamb</div>
+                        <div class="menu-item-price">$58</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Chocolate Fondant -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('chocolate-fondant')">
-                <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" alt="Chocolate Fondant">
-                <div class="menu-item-overlay">
-                    <h3>Chocolate Fondant</h3>
-                    <span class="price">$24</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" alt="Chocolate Fondant">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Chocolate Fondant</div>
+                        <div class="menu-item-price">$24</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
 
+            <!-- Crème Brûlée -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('creme-brulee')">
-                <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=600&q=80" alt="Crème Brûlée">
-                <div class="menu-item-overlay">
-                    <h3>Crème Brûlée</h3>
-                    <span class="price">$18</span>
+                <div class="menu-item-image-container">
+                    <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=600&q=80" alt="Crème Brûlée">
                 </div>
+                <div class="menu-item-info">
+                    <div>
+                        <div class="menu-item-name">Crème Brûlée</div>
+                        <div class="menu-item-price">$18</div>
+                    </div>
+                </div>
+                <button class="menu-item-heart" onclick="toggleHeart(this, event)">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1864,7 +2081,19 @@
         </div>
     </section>
 
-    <!-- Chefs Section -->
+    <!-- NEW Video Banner Section After Our Story -->
+    <section class="video-banner-secondary">
+        <video autoplay loop playsinline muted>
+            <source src="https://cdn.shopify.com/videos/c/o/v/e083358fdb334dd2a16c96351c8cb8e4.mp4" type="video/mp4">
+        </video>
+        <div class="video-banner-content">
+            <h2>Experience the Art of Fine Dining</h2>
+            <p>Where exceptional flavors meet unforgettable moments</p>
+            <button class="btn-primary copper-glow" onclick="openReserveModal()">Make a Reservation</button>
+        </div>
+    </section>
+
+    <!-- Chefs Section - UPDATED WITH MORE RELEVANT IMAGES -->
     <section class="chefs">
         <div class="section-header">
             <p class="section-subtitle">Meet The Team</p>
@@ -1874,7 +2103,7 @@
         <div class="chefs-grid">
             <div class="chef-card">
                 <div class="chef-image">
-                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80" alt="Chef Marcus">
+                    <img src="https://images.unsplash.com/photo-1583394230783-78d523f6b39e?w=600&q=80" alt="Chef Marcus">
                 </div>
                 <h3>Marcus Thornton</h3>
                 <p class="chef-role">Executive Chef & Founder</p>
@@ -2365,8 +2594,41 @@
     </div>
 
     <script>
-        // Product Data
+        // Product Data - Updated with new dishes
         const products = {
+            'truffle-pasta': {
+                name: 'Truffle Pasta',
+                price: '$65',
+                image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800&q=90',
+                description: 'Hand-rolled pasta with black truffle shavings, parmesan cream, and fresh herbs.',
+                ingredients: ['Fresh pasta', 'Black truffle', 'Parmesan', 'Heavy cream', 'Butter', 'Fresh herbs', 'Garlic'],
+                reviews: [
+                    { name: 'Jennifer L.', stars: 5, text: 'The truffle flavor is incredible. Best pasta I\'ve ever had!' },
+                    { name: 'Mark T.', stars: 5, text: 'Worth every penny. The aroma alone is worth the visit.' }
+                ]
+            },
+            'sea-urchin-risotto': {
+                name: 'Sea Urchin Risotto',
+                price: '$90',
+                image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=90',
+                description: 'Creamy risotto with fresh sea urchin, saffron, and ocean essence.',
+                ingredients: ['Arborio rice', 'Fresh uni', 'Saffron', 'White wine', 'Fish stock', 'Butter', 'Parmesan'],
+                reviews: [
+                    { name: 'David K.', stars: 5, text: 'An ocean of flavors in every bite. Absolutely divine!' },
+                    { name: 'Rachel S.', stars: 5, text: 'The creaminess of the uni with the risotto is perfection.' }
+                ]
+            },
+            'matcha-lava-cake': {
+                name: 'Matcha Lava Cake',
+                price: '$35',
+                image: 'https://images.unsplash.com/photo-1601312348631-30394e5a41b9?w=800&q=90',
+                description: 'Warm matcha green tea cake with a molten center, served with vanilla ice cream.',
+                ingredients: ['Matcha powder', 'White chocolate', 'Eggs', 'Butter', 'Flour', 'Vanilla ice cream'],
+                reviews: [
+                    { name: 'Amy W.', stars: 5, text: 'The perfect balance of bitter and sweet. Stunning presentation!' },
+                    { name: 'Chris P.', stars: 5, text: 'That molten center is pure magic. A must-try dessert.' }
+                ]
+            },
             'truffle-risotto': {
                 name: 'Truffle Risotto',
                 price: '$48',
@@ -2422,7 +2684,7 @@
             'scallop': {
                 name: 'Pan-Seared Scallops',
                 price: '$38',
-                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=800&q=90',
+                image: 'https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=800&q=90',
                 description: 'Perfectly seared scallops with cauliflower purée, crispy pancetta, and brown butter sauce.',
                 ingredients: ['Jumbo scallops', 'Cauliflower', 'Pancetta', 'Brown butter', 'Capers', 'Lemon'],
                 reviews: [
@@ -2584,6 +2846,20 @@
             }, 2500);
         });
 
+        // Toggle heart icon
+        function toggleHeart(btn, event) {
+            event.stopPropagation();
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('active')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+            }
+        }
+
         // Modal functions
         function openReserveModal() {
             document.getElementById('reserveModal').classList.add('active');
@@ -2708,7 +2984,7 @@
 
             items.forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
+                    item.style.display = 'flex';
                     setTimeout(() => {
                         item.style.opacity = '1';
                         item.style.transform = 'translateY(0)';
