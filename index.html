@@ -251,7 +251,6 @@
             z-index: -2;
         }
 
-        /* Very light overlay to make video visible */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -262,7 +261,6 @@
             z-index: -1;
         }
 
-        /* Intro Overlay */
         .hero-intro {
             position: absolute;
             top: 0;
@@ -297,7 +295,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Hero Content (Main) - Buttons at bottom */
         .hero-content {
             position: absolute;
             bottom: 15%;
@@ -381,6 +378,70 @@
         .scroll-indicator i {
             font-size: 2rem;
             color: var(--copper);
+        }
+
+        /* Sound Control Button */
+        .sound-control {
+            position: absolute;
+            bottom: 5rem;
+            right: 3rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(184, 115, 51, 0.9);
+            border: 2px solid var(--copper);
+            border-radius: 50%;
+            color: var(--darker-chocolate);
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sound-control:hover {
+            background: var(--copper);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(184, 115, 51, 0.6);
+        }
+
+        .sound-control.unmuted {
+            background: var(--copper);
+        }
+
+        /* Background Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 45px;
+            height: 45px;
+            background: rgba(184, 115, 51, 0.9);
+            border: 2px solid var(--copper);
+            border-radius: 50%;
+            color: var(--darker-chocolate);
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-control:hover {
+            background: var(--copper);
+            transform: scale(1.1);
+        }
+
+        .music-control.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(184, 115, 51, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(184, 115, 51, 0); }
         }
 
         /* Section Styles */
@@ -474,7 +535,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Video Banner - With Sound */
+        /* Video Banner */
         .video-banner {
             height: 80vh;
             position: relative;
@@ -529,7 +590,7 @@
             font-weight: 300;
         }
 
-        /* Menu Section - Redesigned to match attached image */
+        /* Menu Section - Redesigned */
         .menu {
             background: var(--darker-chocolate);
         }
@@ -1600,37 +1661,19 @@
 
         /* Animations */
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(30px); }
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-15px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-8px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
         }
 
         @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* Mobile Responsive */
@@ -1647,114 +1690,34 @@
                 align-items: center;
                 transition: right 0.3s ease;
             }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .mobile-menu {
-                display: flex;
-                z-index: 1001;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .about-images {
-                order: -1;
-            }
-
-            .about-images img:first-child {
-                transform: translateY(0);
-            }
-
-            .ingredients-list ul {
-                grid-template-columns: 1fr;
-            }
-
-            .review-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .review-image {
-                width: 180px;
-                height: 250px;
-            }
-
-            .review-text {
-                font-size: 1.2rem;
-            }
-
-            .event-modal-info {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .menu-grid,
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .chefs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .menu-item-image-container {
-                width: 240px;
-                height: 240px;
-            }
+            .nav-links.active { right: 0; }
+            .mobile-menu { display: flex; z-index: 1001; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .about-content, .contact-content { grid-template-columns: 1fr; gap: 3rem; }
+            .about-images { order: -1; }
+            .about-images img:first-child { transform: translateY(0); }
+            .ingredients-list ul { grid-template-columns: 1fr; }
+            .review-card { flex-direction: column; text-align: center; }
+            .review-image { width: 180px; height: 250px; }
+            .review-text { font-size: 1.2rem; }
+            .event-modal-info { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .menu-grid, .events-grid { grid-template-columns: 1fr; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .chefs-grid { grid-template-columns: 1fr; }
+            .menu-item-image-container { width: 240px; height: 240px; }
+            .sound-control { bottom: 6rem; right: 1.5rem; }
         }
 
         @media (max-width: 640px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .menu-tabs {
-                gap: 0.8rem;
-            }
-
-            .menu-tab {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.8rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-body {
-                padding: 1.5rem;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-
-            .event-modal-content h2 {
-                font-size: 1.8rem;
-            }
+            .section-title { font-size: 2.5rem; }
+            .menu-tabs { gap: 0.8rem; }
+            .menu-tab { padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+            .about-stats { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .modal-body { padding: 1.5rem; }
+            .contact-form { padding: 1.5rem; }
+            .event-modal-content h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -1779,24 +1742,25 @@
         </div>
     </nav>
 
-    <!-- Full Screen Video Hero - NOW WITH SOUND -->
+    <!-- Full Screen Video Hero - WITH SOUND CONTROL -->
     <section class="hero" id="home">
-        <!-- Video Background - Removed muted attribute for sound -->
-        <video class="hero-video-bg" autoplay loop playsinline>
+        <video class="hero-video-bg" id="heroVideo" autoplay muted loop playsinline>
             <source src="https://cdn.shopify.com/videos/c/o/v/c271c6c9e53c41419de2cf2b26141d77.mp4" type="video/mp4">
         </video>
         
-        <!-- Light Overlay -->
+        <!-- Sound Control Button -->
+        <button class="sound-control" id="soundControl" onclick="toggleVideoSound()" title="Toggle Sound">
+            <i class="fas fa-volume-mute"></i>
+        </button>
+        
         <div class="hero-overlay"></div>
 
-        <!-- Intro Overlay (Welcome Text) -->
         <div class="hero-intro" id="heroIntro">
             <div class="hero-intro-content">
                 <h1 class="hero-intro-title shining-text">Welcome to Ember & Oak</h1>
             </div>
         </div>
 
-        <!-- Main Hero Content - Buttons at bottom -->
         <div class="hero-content" id="heroContent">
             <div class="hero-buttons">
                 <button class="btn-primary copper-glow" onclick="openReserveModal()">Book a Table</button>
@@ -1809,7 +1773,7 @@
         </div>
     </section>
 
-    <!-- Featured Section - Updated Images -->
+    <!-- Featured Section -->
     <section class="featured">
         <div class="section-header">
             <p class="section-subtitle">Our Signature</p>
@@ -1844,7 +1808,7 @@
         </div>
     </section>
 
-    <!-- Video Banner - With Sound -->
+    <!-- Video Banner -->
     <section class="video-banner">
         <video autoplay loop playsinline muted>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-people-clinking-glasses-of-champagne-in-a-party-39977-large.mp4" type="video/mp4">
@@ -1856,7 +1820,7 @@
         </div>
     </section>
 
-    <!-- Menu Section - REDESIGNED TO MATCH ATTACHED IMAGE -->
+    <!-- Menu Section - REDESIGNED -->
     <section class="menu" id="menu">
         <div class="section-header">
             <p class="section-subtitle">Culinary Excellence</p>
@@ -1872,7 +1836,6 @@
         </div>
 
         <div class="menu-grid" id="menuGrid">
-            <!-- Truffle Pasta - $65 -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('truffle-pasta')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=80" alt="Truffle Pasta">
@@ -1888,7 +1851,6 @@
                 </button>
             </div>
 
-            <!-- Sea Urchin Risotto - $90 -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('sea-urchin-risotto')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Sea Urchin Risotto">
@@ -1904,7 +1866,6 @@
                 </button>
             </div>
 
-            <!-- Matcha Lava Cake - $35 -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('matcha-lava-cake')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1601312348631-30394e5a41b9?w=600&q=80" alt="Matcha Lava Cake">
@@ -1920,7 +1881,6 @@
                 </button>
             </div>
 
-            <!-- Foie Gras Terrine -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('foie-gras')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=600&q=80" alt="Foie Gras">
@@ -1936,7 +1896,6 @@
                 </button>
             </div>
 
-            <!-- Tuna Tartare -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('tuna-tartare')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Tuna Tartare">
@@ -1952,7 +1911,6 @@
                 </button>
             </div>
 
-            <!-- Pan-Seared Scallops -->
             <div class="menu-item" data-category="starters" onclick="openProductModal('scallop')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=600&q=80" alt="Scallops">
@@ -1968,7 +1926,6 @@
                 </button>
             </div>
 
-            <!-- Duck Confit -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('duck-confit')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&q=80" alt="Duck Confit">
@@ -1984,7 +1941,6 @@
                 </button>
             </div>
 
-            <!-- Mediterranean Sea Bass -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('sea-bass')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" alt="Sea Bass">
@@ -2000,7 +1956,6 @@
                 </button>
             </div>
 
-            <!-- Rack of Lamb -->
             <div class="menu-item" data-category="mains" onclick="openProductModal('lamb-rack')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80" alt="Lamb Rack">
@@ -2016,7 +1971,6 @@
                 </button>
             </div>
 
-            <!-- Chocolate Fondant -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('chocolate-fondant')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600&q=80" alt="Chocolate Fondant">
@@ -2032,7 +1986,6 @@
                 </button>
             </div>
 
-            <!-- Crème Brûlée -->
             <div class="menu-item" data-category="desserts" onclick="openProductModal('creme-brulee')">
                 <div class="menu-item-image-container">
                     <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=600&q=80" alt="Crème Brûlée">
@@ -2083,7 +2036,7 @@
 
     <!-- NEW Video Banner Section After Our Story -->
     <section class="video-banner-secondary">
-        <video autoplay loop playsinline muted>
+        <video autoplay loop playsinline muted id="secondaryVideo">
             <source src="https://cdn.shopify.com/videos/c/o/v/e083358fdb334dd2a16c96351c8cb8e4.mp4" type="video/mp4">
         </video>
         <div class="video-banner-content">
@@ -2093,7 +2046,7 @@
         </div>
     </section>
 
-    <!-- Chefs Section - UPDATED WITH MORE RELEVANT IMAGES -->
+    <!-- Chefs Section - UPDATED IMAGES -->
     <section class="chefs">
         <div class="section-header">
             <p class="section-subtitle">Meet The Team</p>
@@ -2202,75 +2155,27 @@
         <div class="gallery-grid">
             <div class="gallery-item">
                 <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=90" alt="Restaurant Interior">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="gallery-item">
                 <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90" alt="Fine Dining">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="gallery-item">
                 <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90" alt="Dish Presentation">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="gallery-item">
                 <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90" alt="Wine Cellar">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="gallery-item">
                 <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=90" alt="Kitchen">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
             <div class="gallery-item">
                 <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=800&q=90" alt="Dessert">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=90" alt="Gourmet Dish">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=800&q=90" alt="Ambiance">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90" alt="Plating">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90" alt="Wine Service">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=90" alt="Dining Area">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90" alt="Table Setting">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
+                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
             </div>
         </div>
     </section>
@@ -2289,11 +2194,7 @@
                     </div>
                     <div class="review-content">
                         <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="review-text">"Stepping into Ember & Oak felt like crossing into another world. The lighting, the music, everything was perfectly tuned to the night."</p>
                         <div class="reviewer-info">
@@ -2307,18 +2208,13 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="review-card">
                     <div class="review-image">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Michael R">
                     </div>
                     <div class="review-content">
                         <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="review-text">"From the moment we arrived, every detail felt intentional and refined. The flavors were beautifully balanced."</p>
                         <div class="reviewer-info">
@@ -2332,113 +2228,12 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="review-card">
-                    <div class="review-image">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Sarah K">
-                    </div>
-                    <div class="review-content">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"The Wagyu steak was absolutely divine—melt-in-your-mouth perfection. The wine pairing suggestions were spot on."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sarah K">
-                            </div>
-                            <div class="reviewer-details">
-                                <h4>Sarah K.</h4>
-                                <p>Culinary Enthusiast, Paris</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-image">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="David L">
-                    </div>
-                    <div class="review-content">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"We celebrated our anniversary here and it exceeded all expectations. The Chef's Table experience was extraordinary."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="David L">
-                            </div>
-                            <div class="reviewer-details">
-                                <h4>David L.</h4>
-                                <p>Business Executive, Tokyo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-image">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Emma T">
-                    </div>
-                    <div class="review-content">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Best risotto in London, hands down. The truffle aroma alone is worth the visit. An unforgettable dining experience."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Emma T">
-                            </div>
-                            <div class="reviewer-details">
-                                <h4>Emma T.</h4>
-                                <p>Food Blogger, Milan</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-image">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80" alt="Robert H">
-                    </div>
-                    <div class="review-content">
-                        <div class="review-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="review-text">"Buttery, rich, and perfectly balanced with the sweet fig. Exceptional quality. The perfect start to our meal."</p>
-                        <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Robert H">
-                            </div>
-                            <div class="reviewer-details">
-                                <h4>Robert H.</h4>
-                                <p>Chef, Barcelona</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="slider-controls">
                 <button class="slider-btn" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
                 <button class="slider-btn" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
             </div>
-
             <div class="slider-dots" id="sliderDots"></div>
         </div>
     </section>
@@ -2546,16 +2341,21 @@
         </div>
     </footer>
 
+    <!-- Background Music & Control -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-control" id="musicControl" onclick="toggleMusic()" title="Toggle Background Music">
+        <i class="fas fa-music"></i>
+    </button>
+
     <!-- Reserve Modal -->
     <div class="modal" id="reserveModal">
         <div class="modal-content reserve-modal-content">
-            <button class="modal-close" onclick="closeReserveModal()">
-                <i class="fas fa-times"></i>
-            </button>
+            <button class="modal-close" onclick="closeReserveModal()"><i class="fas fa-times"></i></button>
             <div class="modal-body">
                 <h2>Reserve Your Table</h2>
                 <p>We look forward to welcoming you to Ember & Oak. For immediate assistance or special requests, please contact us directly.</p>
-                
                 <div class="contact-info-modal">
                     <h3>Contact Information</h3>
                     <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +44 (0) 20 7946 0958</p>
@@ -2563,7 +2363,6 @@
                     <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 143rd Avenue, Mayfair District, London</p>
                     <p><i class="far fa-clock"></i> <strong>Hours:</strong> Tuesday - Sunday, 6:00 PM - 11:00 PM</p>
                 </div>
-                
                 <button class="btn-primary copper-glow" style="margin-top: 2rem; width: 100%; padding: 1rem;" onclick="closeReserveModal(); window.location.href='tel:+442079460958'">
                     Call Now to Book
                 </button>
@@ -2574,209 +2373,118 @@
     <!-- Product Detail Modal -->
     <div class="modal" id="productModal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeProductModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-body" id="productModalContent">
-            </div>
+            <button class="modal-close" onclick="closeProductModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="productModalContent"></div>
         </div>
     </div>
 
     <!-- Event Detail Modal -->
     <div class="modal" id="eventModal">
         <div class="modal-content event-modal-content">
-            <button class="modal-close" onclick="closeEventModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-body" id="eventModalContent">
-            </div>
+            <button class="modal-close" onclick="closeEventModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-body" id="eventModalContent"></div>
         </div>
     </div>
 
     <script>
-        // Product Data - Updated with new dishes
+        // Product Data
         const products = {
             'truffle-pasta': {
-                name: 'Truffle Pasta',
-                price: '$65',
-                image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800&q=90',
+                name: 'Truffle Pasta', price: '$65', image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800&q=90',
                 description: 'Hand-rolled pasta with black truffle shavings, parmesan cream, and fresh herbs.',
                 ingredients: ['Fresh pasta', 'Black truffle', 'Parmesan', 'Heavy cream', 'Butter', 'Fresh herbs', 'Garlic'],
-                reviews: [
-                    { name: 'Jennifer L.', stars: 5, text: 'The truffle flavor is incredible. Best pasta I\'ve ever had!' },
-                    { name: 'Mark T.', stars: 5, text: 'Worth every penny. The aroma alone is worth the visit.' }
-                ]
+                reviews: [{ name: 'Jennifer L.', stars: 5, text: 'The truffle flavor is incredible. Best pasta I\'ve ever had!' }]
             },
             'sea-urchin-risotto': {
-                name: 'Sea Urchin Risotto',
-                price: '$90',
-                image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=90',
+                name: 'Sea Urchin Risotto', price: '$90', image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=90',
                 description: 'Creamy risotto with fresh sea urchin, saffron, and ocean essence.',
                 ingredients: ['Arborio rice', 'Fresh uni', 'Saffron', 'White wine', 'Fish stock', 'Butter', 'Parmesan'],
-                reviews: [
-                    { name: 'David K.', stars: 5, text: 'An ocean of flavors in every bite. Absolutely divine!' },
-                    { name: 'Rachel S.', stars: 5, text: 'The creaminess of the uni with the risotto is perfection.' }
-                ]
+                reviews: [{ name: 'David K.', stars: 5, text: 'An ocean of flavors in every bite. Absolutely divine!' }]
             },
             'matcha-lava-cake': {
-                name: 'Matcha Lava Cake',
-                price: '$35',
-                image: 'https://images.unsplash.com/photo-1601312348631-30394e5a41b9?w=800&q=90',
+                name: 'Matcha Lava Cake', price: '$35', image: 'https://images.unsplash.com/photo-1601312348631-30394e5a41b9?w=800&q=90',
                 description: 'Warm matcha green tea cake with a molten center, served with vanilla ice cream.',
                 ingredients: ['Matcha powder', 'White chocolate', 'Eggs', 'Butter', 'Flour', 'Vanilla ice cream'],
-                reviews: [
-                    { name: 'Amy W.', stars: 5, text: 'The perfect balance of bitter and sweet. Stunning presentation!' },
-                    { name: 'Chris P.', stars: 5, text: 'That molten center is pure magic. A must-try dessert.' }
-                ]
+                reviews: [{ name: 'Amy W.', stars: 5, text: 'The perfect balance of bitter and sweet. Stunning presentation!' }]
             },
             'truffle-risotto': {
-                name: 'Truffle Risotto',
-                price: '$48',
-                image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=90',
-                description: 'Creamy arborio rice slowly cooked with white wine, parmesan, and finished with generous shavings of black truffle from Périgord.',
-                ingredients: ['Arborio rice', 'Black truffle', 'Parmigiano-Reggiano', 'White wine', 'Vegetable stock', 'Shallots', 'Butter', 'Truffle oil'],
-                reviews: [
-                    { name: 'Sarah K.', stars: 5, text: 'The most incredible risotto I\'ve ever had. The truffle flavor is divine!' },
-                    { name: 'Michael R.', stars: 5, text: 'Perfectly creamy, rich without being heavy. A must-try dish.' }
-                ]
+                name: 'Truffle Risotto', price: '$48', image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=90',
+                description: 'Creamy arborio rice slowly cooked with white wine, parmesan, and finished with generous shavings of black truffle.',
+                ingredients: ['Arborio rice', 'Black truffle', 'Parmigiano-Reggiano', 'White wine', 'Vegetable stock', 'Shallots', 'Butter'],
+                reviews: [{ name: 'Sarah K.', stars: 5, text: 'The most incredible risotto I\'ve ever had.' }]
             },
             'wagyu-steak': {
-                name: 'A5 Wagyu Steak',
-                price: '$125',
-                image: 'https://images.unsplash.com/photo-1546241072-48010ad2862c?w=800&q=90',
-                description: 'Premium Japanese A5 Wagyu, grilled to perfection and served with seasonal vegetables and red wine reduction.',
+                name: 'A5 Wagyu Steak', price: '$125', image: 'https://images.unsplash.com/photo-1546241072-48010ad2862c?w=800&q=90',
+                description: 'Premium Japanese A5 Wagyu, grilled to perfection and served with seasonal vegetables.',
                 ingredients: ['A5 Wagyu beef', 'Seasonal vegetables', 'Red wine reduction', 'Sea salt', 'Herb butter'],
-                reviews: [
-                    { name: 'David L.', stars: 5, text: 'Melt-in-your-mouth perfection. Worth every penny.' },
-                    { name: 'Jennifer T.', stars: 5, text: 'Best steak of my life. The texture is like butter.' }
-                ]
+                reviews: [{ name: 'David L.', stars: 5, text: 'Melt-in-your-mouth perfection.' }]
             },
             'lobster-thermidor': {
-                name: 'Lobster Thermidor',
-                price: '$85',
-                image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90',
-                description: 'Classic French preparation with cognac cream sauce, gruyère cheese, and a perfectly golden gratinéed top.',
-                ingredients: ['Whole lobster', 'Cognac', 'Gruyère cheese', 'Heavy cream', 'Dijon mustard', 'Tarragon', 'Egg yolks'],
-                reviews: [
-                    { name: 'Amanda P.', stars: 5, text: 'Rich, indulgent, and absolutely delicious. A true classic done right.' }
-                ]
+                name: 'Lobster Thermidor', price: '$85', image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=90',
+                description: 'Classic French preparation with cognac cream sauce and gruyère cheese.',
+                ingredients: ['Whole lobster', 'Cognac', 'Gruyère cheese', 'Heavy cream', 'Dijon mustard', 'Tarragon'],
+                reviews: [{ name: 'Amanda P.', stars: 5, text: 'Rich, indulgent, and absolutely delicious.' }]
             },
             'foie-gras': {
-                name: 'Foie Gras Terrine',
-                price: '$42',
-                image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=800&q=90',
-                description: 'Silky smooth foie gras terrine served with toasted brioche, fig compote, and aged balsamic reduction.',
+                name: 'Foie Gras Terrine', price: '$42', image: 'https://images.unsplash.com/photo-1626645738196-c2a7c1714902?w=800&q=90',
+                description: 'Silky smooth foie gras terrine served with toasted brioche and fig compote.',
                 ingredients: ['Foie gras', 'Brioche', 'Fig compote', 'Balsamic reduction', 'Sea salt', 'Black pepper'],
-                reviews: [
-                    { name: 'Robert H.', stars: 5, text: 'Buttery, rich, and perfectly balanced with the sweet fig.' }
-                ]
+                reviews: [{ name: 'Robert H.', stars: 5, text: 'Buttery, rich, and perfectly balanced.' }]
             },
             'tuna-tartare': {
-                name: 'Yellowfin Tuna Tartare',
-                price: '$32',
-                image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=90',
-                description: 'Fresh yellowfin tuna with avocado, citrus soy dressing, sesame crisps, and wasabi aioli.',
+                name: 'Yellowfin Tuna Tartare', price: '$32', image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=90',
+                description: 'Fresh yellowfin tuna with avocado, citrus soy dressing, and wasabi aioli.',
                 ingredients: ['Yellowfin tuna', 'Avocado', 'Sesame', 'Wasabi', 'Citrus soy', 'Crisps'],
-                reviews: [
-                    { name: 'Lisa M.', stars: 5, text: 'So fresh and beautifully presented. The wasabi aioli is amazing!' }
-                ]
+                reviews: [{ name: 'Lisa M.', stars: 5, text: 'So fresh and beautifully presented.' }]
             },
             'scallop': {
-                name: 'Pan-Seared Scallops',
-                price: '$38',
-                image: 'https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=800&q=90',
-                description: 'Perfectly seared scallops with cauliflower purée, crispy pancetta, and brown butter sauce.',
+                name: 'Pan-Seared Scallops', price: '$38', image: 'https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=800&q=90',
+                description: 'Perfectly seared scallops with cauliflower purée, crispy pancetta, and brown butter.',
                 ingredients: ['Jumbo scallops', 'Cauliflower', 'Pancetta', 'Brown butter', 'Capers', 'Lemon'],
-                reviews: [
-                    { name: 'Thomas W.', stars: 5, text: 'Cooked to perfection. Sweet, tender, and absolutely delicious.' }
-                ]
+                reviews: [{ name: 'Thomas W.', stars: 5, text: 'Cooked to perfection. Sweet and tender.' }]
             },
             'duck-confit': {
-                name: 'Duck Confit',
-                price: '$52',
-                image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=800&q=90',
+                name: 'Duck Confit', price: '$52', image: 'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=800&q=90',
                 description: 'Crispy skin duck confit with lentils, cherry reduction, and roasted root vegetables.',
                 ingredients: ['Duck leg', 'Lentils', 'Cherries', 'Root vegetables', 'Thyme', 'Garlic'],
-                reviews: [
-                    { name: 'Patricia G.', stars: 5, text: 'The skin is perfectly crispy and the meat is so tender!' }
-                ]
+                reviews: [{ name: 'Patricia G.', stars: 5, text: 'The skin is perfectly crispy and the meat is tender!' }]
             },
             'sea-bass': {
-                name: 'Mediterranean Sea Bass',
-                price: '$46',
-                image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=90',
+                name: 'Mediterranean Sea Bass', price: '$46', image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=90',
                 description: 'Herb-crusted sea bass with ratatouille and saffron beurre blanc.',
                 ingredients: ['Sea bass', 'Herbs', 'Ratatouille', 'Saffron', 'Butter', 'White wine'],
-                reviews: [
-                    { name: 'Christopher B.', stars: 5, text: 'Light, flavorful, and beautifully cooked. The saffron sauce is incredible.' }
-                ]
+                reviews: [{ name: 'Christopher B.', stars: 5, text: 'Light, flavorful, and beautifully cooked.' }]
             },
             'lamb-rack': {
-                name: 'Rack of Lamb',
-                price: '$58',
-                image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=90',
+                name: 'Rack of Lamb', price: '$58', image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=90',
                 description: 'Herb-crusted rack of lamb with dauphinoise potatoes and red wine jus.',
                 ingredients: ['Rack of lamb', 'Herbs', 'Potatoes', 'Cream', 'Red wine', 'Shallots'],
-                reviews: [
-                    { name: 'Elizabeth D.', stars: 5, text: 'Perfectly pink and so flavorful. The herb crust adds amazing texture.' }
-                ]
+                reviews: [{ name: 'Elizabeth D.', stars: 5, text: 'Perfectly pink and so flavorful.' }]
             },
             'chocolate-fondant': {
-                name: 'Chocolate Fondant',
-                price: '$24',
-                image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=800&q=90',
+                name: 'Chocolate Fondant', price: '$24', image: 'https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=800&q=90',
                 description: 'Valrhona chocolate fondant with vanilla bean ice cream and berry coulis.',
                 ingredients: ['Valrhona chocolate', 'Vanilla ice cream', 'Mixed berries', 'Sugar', 'Butter', 'Eggs'],
-                reviews: [
-                    { name: 'Nicole S.', stars: 5, text: 'Gooey center, rich chocolate flavor. Heaven on a plate!' }
-                ]
+                reviews: [{ name: 'Nicole S.', stars: 5, text: 'Gooey center, rich chocolate flavor. Heaven!' }]
             },
             'creme-brulee': {
-                name: 'Crème Brûlée',
-                price: '$18',
-                image: 'https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=800&q=90',
+                name: 'Crème Brûlée', price: '$18', image: 'https://images.unsplash.com/photo-1470324161839-ce2bb2fa6f0f?w=800&q=90',
                 description: 'Madagascar vanilla crème brûlée with caramelized sugar and fresh berries.',
                 ingredients: ['Heavy cream', 'Vanilla bean', 'Egg yolks', 'Sugar', 'Fresh berries'],
-                reviews: [
-                    { name: 'Karen J.', stars: 5, text: 'The perfect crack on top and so creamy inside. Classic done perfectly.' }
-                ]
+                reviews: [{ name: 'Karen J.', stars: 5, text: 'The perfect crack on top and so creamy inside.' }]
             }
         };
 
         // Event Data
         const events = {
-            'jazz': {
-                title: 'Jazz & Wine Evening',
-                image: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=90',
-                date: 'January 25, 2026',
-                time: '7:00 PM - 11:00 PM',
-                price: '$150 per person',
-                description: 'Experience an intimate evening of smooth jazz performed by the Marcus Williams Quartet, paired with our exclusive wine tasting menu featuring rare vintages from our cellar.',
-                includes: ['Welcome champagne reception', 'Four-course tasting menu', 'Wine pairings', 'Live jazz performance']
-            },
-            'chefs-table': {
-                title: 'Chef\'s Table Experience',
-                image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90',
-                date: 'February 2, 2026',
-                time: '6:30 PM',
-                price: '$350 per person',
-                description: 'An exclusive 12-course tasting menu prepared tableside by Chef Marcus. Limited to just 8 guests.',
-                includes: ['12-course tasting menu', 'Wine pairings', 'Personal interaction with Chef Marcus', 'Kitchen tour']
-            },
-            'valentines': {
-                title: 'Valentine\'s Gala Dinner',
-                image: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90',
-                date: 'February 14, 2026',
-                time: '6:00 PM - 10:00 PM',
-                price: '$200 per couple',
-                description: 'Celebrate love with our special Valentine\'s menu featuring aphrodisiac ingredients, champagne service, and live violin performance.',
-                includes: ['Five-course romantic menu', 'Champagne toast', 'Live violin', 'Red roses', 'Artisanal chocolates']
-            }
+            'jazz': { title: 'Jazz & Wine Evening', image: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=90', date: 'January 25, 2026', time: '7:00 PM - 11:00 PM', price: '$150 per person', description: 'Experience an intimate evening of smooth jazz paired with our exclusive wine tasting menu.', includes: ['Welcome champagne reception', 'Four-course tasting menu', 'Wine pairings', 'Live jazz performance'] },
+            'chefs-table': { title: 'Chef\'s Table Experience', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=90', date: 'February 2, 2026', time: '6:30 PM', price: '$350 per person', description: 'An exclusive 12-course tasting menu prepared tableside by Chef Marcus. Limited to 8 guests.', includes: ['12-course tasting menu', 'Wine pairings', 'Personal interaction with Chef Marcus', 'Kitchen tour'] },
+            'valentines': { title: 'Valentine\'s Gala Dinner', image: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?w=800&q=90', date: 'February 14, 2026', time: '6:00 PM - 10:00 PM', price: '$200 per couple', description: 'Celebrate love with our special Valentine\'s menu featuring champagne service and live violin.', includes: ['Five-course romantic menu', 'Champagne toast', 'Live violin', 'Red roses', 'Artisanal chocolates'] }
         };
 
         // Reviews Slider
         let currentSlide = 0;
-        const totalSlides = 6;
+        const totalSlides = 2;
         const slider = document.getElementById('reviewsSlider');
         const dotsContainer = document.getElementById('sliderDots');
 
@@ -2807,42 +2515,28 @@
             });
         }
 
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
+        setInterval(() => { changeSlide(1); }, 5000);
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
 
         // Mobile menu toggle
         const mobileMenu = document.getElementById('mobileMenu');
         const navLinks = document.getElementById('navLinks');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
+        mobileMenu.addEventListener('click', () => { navLinks.classList.toggle('active'); });
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => { navLinks.classList.remove('active'); });
         });
 
         // Hero Intro Animation
         window.addEventListener('load', () => {
             setTimeout(() => {
-                const intro = document.getElementById('heroIntro');
-                const content = document.getElementById('heroContent');
-                
-                intro.classList.add('hidden');
-                content.classList.add('visible');
+                document.getElementById('heroIntro').classList.add('hidden');
+                document.getElementById('heroContent').classList.add('visible');
             }, 2500);
         });
 
@@ -2860,12 +2554,64 @@
             }
         }
 
+        // Video Sound Control
+        function toggleVideoSound() {
+            const video = document.getElementById('heroVideo');
+            const btn = document.getElementById('soundControl');
+            const icon = btn.querySelector('i');
+            if (video.muted) {
+                video.muted = false;
+                btn.classList.add('unmuted');
+                icon.classList.remove('fa-volume-mute');
+                icon.classList.add('fa-volume-up');
+            } else {
+                video.muted = true;
+                btn.classList.remove('unmuted');
+                icon.classList.remove('fa-volume-up');
+                icon.classList.add('fa-volume-mute');
+            }
+        }
+
+        // Background Music Control
+        function toggleMusic() {
+            const music = document.getElementById('backgroundMusic');
+            const btn = document.getElementById('musicControl');
+            const icon = btn.querySelector('i');
+            if (music.paused) {
+                music.volume = 0.3;
+                music.play().catch(e => console.log('Audio play failed:', e));
+                btn.classList.add('playing');
+                icon.classList.remove('fa-music');
+                icon.classList.add('fa-pause');
+            } else {
+                music.pause();
+                btn.classList.remove('playing');
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-music');
+            }
+        }
+
+        // Auto-play music after first user interaction (Browser requirement)
+        document.addEventListener('click', function initMusic() {
+            const music = document.getElementById('backgroundMusic');
+            const btn = document.getElementById('musicControl');
+            const icon = btn.querySelector('i');
+            if (music && music.paused && !music.dataset.started) {
+                music.volume = 0.2;
+                music.play().catch(e => console.log('Auto-play failed:', e));
+                music.dataset.started = 'true';
+                btn.classList.add('playing');
+                icon.classList.remove('fa-music');
+                icon.classList.add('fa-pause');
+            }
+            document.removeEventListener('click', initMusic);
+        });
+
         // Modal functions
         function openReserveModal() {
             document.getElementById('reserveModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeReserveModal() {
             document.getElementById('reserveModal').classList.remove('active');
             document.body.style.overflow = 'auto';
@@ -2874,9 +2620,7 @@
         function openProductModal(productId) {
             const product = products[productId];
             if (!product) return;
-
             const modalContent = document.getElementById('productModalContent');
-            
             let reviewsHTML = product.reviews.map(review => `
                 <div class="review-item">
                     <div class="review-item-header">
@@ -2886,35 +2630,26 @@
                     <p class="review-item-text">${review.text}</p>
                 </div>
             `).join('');
-
             let ingredientsHTML = product.ingredients.map(ing => `<li>${ing}</li>`).join('');
-
             modalContent.innerHTML = `
                 <h2>${product.name}</h2>
                 <span class="price">${product.price}</span>
                 <p>${product.description}</p>
-                
                 <div class="ingredients-list">
                     <h4>Ingredients</h4>
                     <ul>${ingredientsHTML}</ul>
                 </div>
-                
                 <div class="review-section">
                     <h4>Guest Reviews</h4>
                     ${reviewsHTML}
                 </div>
-                
                 <div class="modal-cta">
-                    <button class="btn-primary copper-glow" onclick="closeProductModal(); openReserveModal()" style="padding: 1rem 2.5rem;">
-                        Reserve to Order
-                    </button>
+                    <button class="btn-primary copper-glow" onclick="closeProductModal(); openReserveModal()" style="padding: 1rem 2.5rem;">Reserve to Order</button>
                 </div>
             `;
-
             document.getElementById('productModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeProductModal() {
             document.getElementById('productModal').classList.remove('active');
             document.body.style.overflow = 'auto';
@@ -2923,53 +2658,27 @@
         function openEventModal(eventId) {
             const event = events[eventId];
             if (!event) return;
-
             const modalContent = document.getElementById('eventModalContent');
-            
             let includesHTML = event.includes.map(item => `<li><i class="fas fa-check" style="color: var(--copper); margin-right: 0.5rem;"></i>${item}</li>`).join('');
-
             modalContent.innerHTML = `
                 <h2>${event.title}</h2>
-                <div class="event-modal-image">
-                    <img src="${event.image}" alt="${event.title}">
-                </div>
-                <div class="event-modal-details">
-                    <h3>About This Event</h3>
-                    <p>${event.description}</p>
-                </div>
+                <div class="event-modal-image"><img src="${event.image}" alt="${event.title}"></div>
+                <div class="event-modal-details"><h3>About This Event</h3><p>${event.description}</p></div>
                 <div class="event-modal-info">
-                    <div class="event-info-item">
-                        <i class="far fa-calendar"></i>
-                        <span>${event.date}</span>
-                    </div>
-                    <div class="event-info-item">
-                        <i class="far fa-clock"></i>
-                        <span>${event.time}</span>
-                    </div>
-                    <div class="event-info-item">
-                        <i class="fas fa-ticket-alt"></i>
-                        <span>${event.price}</span>
-                    </div>
-                    <div class="event-info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Ember & Oak, London</span>
-                    </div>
+                    <div class="event-info-item"><i class="far fa-calendar"></i><span>${event.date}</span></div>
+                    <div class="event-info-item"><i class="far fa-clock"></i><span>${event.time}</span></div>
+                    <div class="event-info-item"><i class="fas fa-ticket-alt"></i><span>${event.price}</span></div>
+                    <div class="event-info-item"><i class="fas fa-map-marker-alt"></i><span>Ember & Oak, London</span></div>
                 </div>
                 <div style="margin-bottom: 1.5rem;">
                     <h3 style="color: var(--copper); margin-bottom: 0.8rem; font-size: 1.1rem;">What's Included</h3>
-                    <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
-                        ${includesHTML}
-                    </ul>
+                    <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">${includesHTML}</ul>
                 </div>
-                <button class="btn-primary copper-glow" onclick="closeEventModal(); openReserveModal()" style="width: 100%; padding: 1rem;">
-                    Reserve Your Spot
-                </button>
+                <button class="btn-primary copper-glow" onclick="closeEventModal(); openReserveModal()" style="width: 100%; padding: 1rem;">Reserve Your Spot</button>
             `;
-
             document.getElementById('eventModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeEventModal() {
             document.getElementById('eventModal').classList.remove('active');
             document.body.style.overflow = 'auto';
@@ -2978,23 +2687,16 @@
         function filterMenu(category) {
             const tabs = document.querySelectorAll('.menu-tab');
             const items = document.querySelectorAll('.menu-item');
-
             tabs.forEach(tab => tab.classList.remove('active'));
             event.target.classList.add('active');
-
             items.forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
                     item.style.display = 'flex';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 10);
+                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'translateY(0)'; }, 10);
                 } else {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(-20px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
+                    setTimeout(() => { item.style.display = 'none'; }, 300);
                 }
             });
         }
@@ -3017,10 +2719,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
